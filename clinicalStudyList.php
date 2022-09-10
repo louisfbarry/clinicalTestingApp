@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Clinical Studies List</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="header">
         <a href="../Homepage.html">
-            <img src="../Images/Hospital Logo.jpg" alt="St George Logo"></a>
+            <img src="Images/Hospital Logo.jpg" alt="St George Logo"></a>
         <h1>Clinical Studies List</h1>
     </div>
     <br>
