@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $patientsEnrolledNumber = $row["patientsEnrolledNumber"];
 } else {
     // POST method: to update the data of the Clinical Trial after it has been edited
+    $studyID = $_POST["studyID"];
     $studyExpertise = $_POST["studyExpertise"];
     $studyPhase = $_POST["studyPhase"];
     $eligibility = $_POST["eligibility"];
@@ -59,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     do {
         if (
-            empty($studyExpertise) || empty($studyPhase)
+             empty($studyID) || empty($studyExpertise) || empty($studyPhase)
             || empty($eligibility) || empty($clinicalStudyDescription) || empty($onStudy) || empty($patientsEnrolledNumber)) {
             $errorMessage = "All the fields are required";
             break;
@@ -67,10 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
         //Query to update the database
-        $sql = "UPDATE clinicalstudies " .
-                "SET studyExpertise = '$studyExpertise', studyPhase = '$studyPhase', eligibiity = '$eligibility', clinicalStudyDescription = '$clinicalStudyDescription'
-                onStudy = '$onStudy', patientsEnrolledNumber = '$patientsEnrolledNumber' " .
-                "WHERE studyID = '$studyID'";
+        $sql = "UPDATE clinicalstudies SET studyExpertise = '$studyExpertise', studyPhase = '$studyPhase', eligibility = '$eligibility', clinicalStudyDescription = '$clinicalStudyDescription', onStudy = '$onStudy', patientsEnrolledNumber = '$patientsEnrolledNumber' WHERE studyID = $studyID";
 
 
         $result = $connection->query($sql);
@@ -157,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     </li>
                     <li>
                         <label for="eligibility">Clinical Study Eligibility:</label>
-                        <textarea id="eligibility" name=eligibility value="<?php echo $eligibility; ?> " placeholder="E.g Patients must be 18 years old or greater"></textarea>
+                        <textarea id="eligibility" name=eligibility <?php echo $eligibility; ?> placeholder="E.g Patients must be 18 years old or greater"> <?php echo $eligibility; ?></textarea>
                     </li>
                     <li>
                         <label for="clinicalStudyDescription">Clinical Study Description:</label>
@@ -197,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             ?>
             <li>
                 <div class="buttonHolder">
-                    <button type="submit" class="btn btn-outline-success">Create Clinical Study</button>
+                    <button type="submit" class="btn btn-outline-success">Edit Clinical Study!</button>
                     <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/clinicalStudyList.php" role="button">Cancel</a>
                 </div>
             </li>
