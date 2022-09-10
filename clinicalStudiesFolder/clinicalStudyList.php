@@ -81,7 +81,7 @@
                     <td>
                         <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/clinicalStudiesFolder/editClinicalStudy.php?studyID=$row[studyID]'>Edit</a>
                         
-                        <a class='btn btn-danger btn-sm' href='/clinicaltesting/deleteClinicalStudy.php?studyID=$row[studyID]'>Delete</a>
+                        <a class='btn btn-danger btn-sm' href='/clinicalTestingWebsite/clinicalStudiesFolder/deleteClinicalStudy.php?studyID=$row[studyID]'>Delete</a>
                     </td>
                     </tr>
                     ";
