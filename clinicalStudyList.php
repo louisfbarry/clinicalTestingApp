@@ -79,9 +79,9 @@
                     <td>$row[onStudy]</td>
                     <td>$row[patientsEnrolledNumber]</td>
                     <td>
-                        <a class='btn btn-primary btn-sm' href='/Group 2 Secret files/Group-2-s-Secret-files/clinicaltesting/Edit Clinical Study.php?studyID = $row[studyID]'>Edit</a>
+                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/editClinicalStudy.php?studyID=$row[studyID]'>Edit</a>
                         
-                        <a class='btn btn-danger btn-sm' href='/clinicaltesting/deleteClinicalStudy.php?studyID = $row[studyID]'>Delete</a>
+                        <a class='btn btn-danger btn-sm' href='/clinicaltesting/deleteClinicalStudy.php?studyID=$row[studyID]'>Delete</a>
                     </td>
                     </tr>
                     ";

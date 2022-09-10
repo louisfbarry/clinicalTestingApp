@@ -24,16 +24,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     //GET Method: To show the data of the Clinical Trial
 
     // IF statement to see if the ID exists in the database. If it does not, the user is redirected back to the list page
-    if (!isset($_GET["id"])) {
+    if (!isset($_GET["studyID"])) {
         header("location: /clinicalTestingWebsite/clinicalStudyList.php");
         exit;
     }
 
     //If the ID does exist in the database, 
-    $studyID = $_GET["id"];
+    $studyID = $_GET["studyID"];
 
     //Read the row of the selected client from the database table
-    $sql = "SELECT * FROM clinicalstudies WHERE id =$id";
+    $sql = "SELECT * FROM clinicalstudies WHERE studyID = $studyID";
     $result = $connection->query($sql);
     $row = $result->fetch_assoc(); //This reads the data of the study from the database
 
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $sql = "UPDATE clinicalstudies " .
                 "SET studyExpertise = '$studyExpertise', studyPhase = '$studyPhase', eligibiity = '$eligibility', clinicalStudyDescription = '$clinicalStudyDescription'
                 onStudy = '$onStudy', patientsEnrolledNumber = '$patientsEnrolledNumber' " .
-                "WHERE studyID = $studyID";
+                "WHERE studyID = '$studyID'";
 
 
         $result = $connection->query($sql);
