@@ -18,7 +18,7 @@
         <div id="topnav">
             <a href="../Homepage.html">Homepage</a>
             <a href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Patient%20Record%20List.php">Patient Record List</a>
-            <a href="../Clinical%20Study%20form%20and%20list%20files/Clinical%20Studies%20List.php">Clinical Study List</a>
+            <a href="clinicalStudyList.php">Clinical Study List</a>
             <a href="../Trial%20Organisation%20form%20and%20files/Trial%20Organisation%20list.php">Trial
                 Organisation List</a>
             <a href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Observation%20and%20Treatment%20list.php">Obervation
@@ -27,7 +27,7 @@
     </div>
     <div class="container my-5">
         <h2> List of Clinical Studies </h2>
-        <a class="btn btn-primary" href="/Group 2 Secret files/Group-2-s-Secret-files/clinicaltesting/Create a Clinical Study form.php" role="button">New Clinical Study </a>
+        <a class="btn btn-primary" href="/clinicalTestingWebsite/createClinicalStudy.php" role="button">New Clinical Study </a>
         <br>
         <table class="table">
             <thead>
