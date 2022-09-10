@@ -156,11 +156,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </li>
             </div>
             <br>
-            <li>
-                <div class="buttonHolder">
-                    <input type="submit" value="Create Clinical Study">
-                </div>
-            </li>
             <?php
             if (!empty($successMessage)) {
                 //We use the javascript sourced from the Bootstrap website (See header) here. It allows us to remove the alerts once they have been read.
@@ -175,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <li>
                 <div class="buttonHolder">
                     <button type="submit" class="btn btn-outline-success">Create Clinical Study</button>
-                    <a class="btn btn-outline-danger" href="//clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php" role="button">Cancel</a>
+                    <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php" role="button">Cancel</a>
                 </div>
             </li>
         </ul>
