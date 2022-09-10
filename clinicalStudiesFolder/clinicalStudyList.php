@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Clinical Studies List</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
     <div class="header">
         <a href="../Homepage.html">
-            <img src="Images/Hospital Logo.jpg" alt="St George Logo"></a>
+            <img src="../Images/Hospital Logo.jpg" alt="St George Logo"></a>
         <h1>Clinical Studies List</h1>
     </div>
     <br>
@@ -27,7 +27,7 @@
     </div>
     <div class="container my-5">
         <h2> List of Clinical Studies </h2>
-        <a class="btn btn-primary" href="/clinicalTestingWebsite/createClinicalStudy.php" role="button">New Clinical Study </a>
+        <a class="btn btn-primary" href="/clinicalTestingWebsite/clinicalStudiesFolder/createClinicalStudy.php" role="button">New Clinical Study </a>
         <br>
         <table class="table">
             <thead>
@@ -79,7 +79,7 @@
                     <td>$row[onStudy]</td>
                     <td>$row[patientsEnrolledNumber]</td>
                     <td>
-                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/editClinicalStudy.php?studyID=$row[studyID]'>Edit</a>
+                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/clinicalStudiesFolder/editClinicalStudy.php?studyID=$row[studyID]'>Edit</a>
                         
                         <a class='btn btn-danger btn-sm' href='/clinicaltesting/deleteClinicalStudy.php?studyID=$row[studyID]'>Delete</a>
                     </td>

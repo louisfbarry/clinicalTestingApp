@@ -1,4 +1,5 @@
-<?php
+<?php //Had to change the file type to php. This is so we can add php code!
+
 //To connect the form to the database
 $servername = "localhost"; // Our server is called localhost as the server is installed on this PC
 $username = "root"; // Our username is called root as that is the default username
@@ -9,7 +10,7 @@ $database = "clinicaltesting2"; // The database is known as clinicaltesting
 $connection = new mysqli($servername, $username, $password, $database);
 
 
-$studyID = "";
+//Initialising Variables for the form! We can now store them into the values of the form inputs
 $studyExpertise = "";
 $studyPhase = "";
 $eligibility = "";
@@ -20,37 +21,7 @@ $patientsEnrolledNumber = "";
 $errorMessage = "";
 $successMessage = "";
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    //GET Method: To show the data of the Clinical Trial
-
-    // IF statement to see if the ID exists in the database. If it does not, the user is redirected back to the list page
-    if (!isset($_GET["studyID"])) {
-        header("location: /clinicalTestingWebsite/clinicalStudyList.php");
-        exit;
-    }
-
-    //If the ID does exist in the database, 
-    $studyID = $_GET["studyID"];
-
-    //Read the row of the selected client from the database table
-    $sql = "SELECT * FROM clinicalstudies WHERE studyID = $studyID";
-    $result = $connection->query($sql);
-    $row = $result->fetch_assoc(); //This reads the data of the study from the database
-
-    if (!$row) {
-        header("location: /clinicalTestingWebsite/clinicalStudyList.php");
-        exit;
-    }
-    //These variables are already displayed in the form
-    $studyExpertise = $row["studyExpertise"];
-    $studyPhase = $row["studyPhase"];
-    $eligibility = $row["eligibility"];
-    $clinicalStudyDescription = $row["clinicalStudyDescription"];
-    $onStudy = $row["onStudy"];
-    $patientsEnrolledNumber = $row["patientsEnrolledNumber"];
-} else {
-    // POST method: to update the data of the Clinical Trial after it has been edited
-    $studyID = $_POST["studyID"];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $studyExpertise = $_POST["studyExpertise"];
     $studyPhase = $_POST["studyPhase"];
     $eligibility = $_POST["eligibility"];
@@ -60,42 +31,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     do {
         if (
-             empty($studyID) || empty($studyExpertise) || empty($studyPhase)
-            || empty($eligibility) || empty($clinicalStudyDescription) || empty($onStudy) || empty($patientsEnrolledNumber)) {
+             empty($studyExpertise) || empty($studyPhase)
+            || empty($eligibility) || empty($clinicalStudyDescription) || empty($onStudy) || empty($patientsEnrolledNumber)
+        ) {
             $errorMessage = "All the fields are required";
             break;
-        } //Error message that displays if any are the inputs are submitted empty\
+        } //Error message that displays if any are the inputs are submitted empty
 
+        // to add a new client to the database\
 
-        //Query to update the database
-        $sql = "UPDATE clinicalstudies SET studyExpertise = '$studyExpertise', studyPhase = '$studyPhase', eligibility = '$eligibility', clinicalStudyDescription = '$clinicalStudyDescription', onStudy = '$onStudy', patientsEnrolledNumber = '$patientsEnrolledNumber' WHERE studyID = $studyID";
+        //Inserting values inputted into our database table!
 
-
+        $sql = "INSERT INTO clinicalstudies (studyExpertise, studyPhase, eligibility, clinicalStudyDescription, onStudy, patientsEnrolledNumber) " .
+        "VALUES ('$studyExpertise','$studyPhase','$eligibility','$clinicalStudyDescription',
+        '$onStudy', '$patientsEnrolledNumber')";
+        //Now excuting the sql query
         $result = $connection->query($sql);
 
-         //If we have any error during the SQL query, this error message is displayed
-         if (!$result) {
+        //If we have any error during the SQL query, this error message is displayed
+        if (!$result) {
             $errorMessage = "Invalid query: " . $connection->error;
             break;
         }
 
-        $successMessage = "Client updated correctly";
 
-        header("location: /clinicalTestingWebsite/clinicalStudyList.php");
+        $studyExpertise = "";
+        $studyPhase = "";
+        $eligibility = "";
+        $clinicalStudyDescription = "";
+        $onStudy = "Yes";
+        $patientsEnrolledNumber = "";
+
+        $successMessage = "Client added successfully";
+
+        //To redirect the user back to the list page once a form is submitted
+        header("location: /clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php");
         exit;
-
     } while (false);
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
-    <title>Edit a Clinical Study Form</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Create a Clinical Study Form</title>
+    <link rel="stylesheet" href="../style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
@@ -103,21 +85,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <body>
     <div class="header">
         <a href="../Homepage.html">
-            <img src="Images/Hospital Logo.jpg" alt="St George Logo"></a>
+            <img src="../Images/Hospital Logo.jpg" alt="St George Logo"></a>
         <h1>Clinical Study Form</h1>
     </div>
     <br>
     <div class="topnav">
         <div id="topnav">
             <a href="../Homepage.html">Homepage</a>
-            <a href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Patient%20Record%20List.php">Patient
+            <a href="http://localhost/Group%202%20Secret%20files/Group-2-s-Secret-files/Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Patient%20Record%20List.php">Patient
                 Record
                 List</a>
-            <a href="../Clinical%20Study%20form%20and%20list%20files/Clinical%20Studies%20List.php">Clinical
+            <a href="http://localhost/Group%202%20Secret%20files/Group-2-s-Secret-files/Clinical%20Study%20form%20and%20list%20files/Clinical%20Studies%20List.php">Clinical
                 Study List</a>
-            <a href="../Trial%20Organisation%20form%20and%20files/Trial%20Organisation%20list.php">Trial
+            <a href="http://localhost/Group%202%20Secret%20files/Group-2-s-Secret-files/Trial%20Organisation%20form%20and%20files/Trial%20Organisation%20list.php">Trial
                 Organisation List</a>
-            <a href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Observation%20and%20Treatment%20list.php">Obervation
+            <a href="http://localhost/Group%202%20Secret%20files/Group-2-s-Secret-files/Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Observation%20and%20Treatment%20list.php">Obervation
                 / Treatment List</a>
         </div>
     </div>
@@ -143,9 +125,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <div class="inputBlackBorder">
                 <form method="post">
                     <li>
-                        <input type="hidden" name = "studyID" value="<?php echo $studyID; ?>">
-                    </li>
-                    <li>
                         <label for="studyExpertise">Clinical Trial Title / Expertise:</label>
                         <input type="text" id="studyExpertise" name="studyExpertise" value="<?php echo $studyExpertise; ?> " placeholder="Enter the Title of the Clinical Study here with the Expertise." />
                     </li>
@@ -155,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     </li>
                     <li>
                         <label for="eligibility">Clinical Study Eligibility:</label>
-                        <textarea id="eligibility" name=eligibility <?php echo $eligibility; ?> placeholder="E.g Patients must be 18 years old or greater"> <?php echo $eligibility; ?></textarea>
+                        <textarea id="eligibility" name=eligibility value="<?php echo $eligibility; ?> " placeholder="E.g Patients must be 18 years old or greater"></textarea>
                     </li>
                     <li>
                         <label for="clinicalStudyDescription">Clinical Study Description:</label>
@@ -187,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 //We use the javascript sourced from the Bootstrap website (See header) here. It allows us to remove the alerts once they have been read.
                 echo "
                 <div class = 'alert alert-success alert-dismissible fade show' role = 'alert'> 
-                <strong> $successMessage</strong>
+                <strong>$successMessage</strong>
                 <button type = 'button' class = 'btn-close' data-bs-dismiss = 'alert' aria-label = 'Close'></button>
                 </div>
                 ";
@@ -195,8 +174,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             ?>
             <li>
                 <div class="buttonHolder">
-                    <button type="submit" class="btn btn-outline-success">Edit Clinical Study!</button>
-                    <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/clinicalStudyList.php" role="button">Cancel</a>
+                    <button type="submit" class="btn btn-outline-success">Create Clinical Study</button>
+                    <a class="btn btn-outline-danger" href="//clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php" role="button">Cancel</a>
                 </div>
             </li>
         </ul>
