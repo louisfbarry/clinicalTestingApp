@@ -27,7 +27,7 @@
     </div>
     <div class="container my-5">
         <h2> Trial Organisations List </h2>
-        <a class="btn btn-primary" href="/clinicalTestingWebsite/clinicalStudiesFolder/createClinicalStudy.php" role="button">New Clinical Study </a>
+        <a class="btn btn-primary" href="/clinicalTestingWebsite/trialOrganisationsFolder/createTrialOrganisation.php" role="button">New Trial Organisation </a>
         <br>
         <table class="table">
             <thead>
@@ -70,91 +70,12 @@
                     <tr>
                     <td>$row[trialOrgID]</td>
                     <td>$row[trialOrgName]</td>
-                    <td>$row[TrialOrgDesc]</td>
-                    <td>$row[eligibility]</td>
+                    <td>$row[trialOrgDesc]</td>
                     <td>$row[cExpertise]</td>
                     <td>
                         <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/trialOrganisationsFolder/editTrialOrganisation.php?trialOrgID=$row[trialOrgID]'>Edit</a>
                         
                         <a class='btn btn-danger btn-sm' href='/clinicalTestingWebsite/trialOrganisationsFolder/deleteTrialOrganisation.php?trialOrgID=$row[trialOrgID]'>Delete</a>
-                    </td>
-                    </tr>
-                    ";
-                    //We need to provide the ID of the Clinical Trial to the Edit and delete pages (See above). This is so the program knows which row we're editing.
-
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
-    <div class="container my-5">
-        <h2> List of Trial Organisations </h2>
-        <a class="btn btn-primary" href="/clinicalTestingWebsite/patientRecordsFolder/createPatientRecord.php" role="button">New Patient Record</a>
-        <br>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Patient ID</th>
-                    <th>Family Name</th>
-                    <th>Given Name</th>
-                    <th>Date of Birth</th>
-                    <th>address</th>
-                    <th>Gender</th>
-                    <th>Weight</th>
-                    <th>Height</th>
-                    <th>Medical History</th>
-                    <th>allergies</th>
-                    <th>Clinical Study ID</th>
-                    <th>Clinical Study Name</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $servername = "localhost"; // Our server is called localhost as the server is installed on this PC
-                $username = "root"; // Our username is called root as that is the default username
-                $password = ""; // Our Password is empty as default
-                $database = "clinicaltesting2"; // The database is known as clinicaltesting
-
-                // Create a connection to the database
-                $connection = new mysqli($servername, $username, $password, $database);
-
-                // Check if the connection is successful
-                if ($connection->connect_error) {
-                    die("Connection failed: " . $connection->connect_error );
-                }
-
-                //SQL to read all the rows on the clinicalstudies table
-                $sql = "SELECT * FROM patientrecords";
-                //The query will be executed and stored in the $result variable
-                $result = $connection->query($sql);
-
-                //To check if the query has been excuted or not
-                if(!$result) {
-                    die("Invalid query: " . $connection->connect_error ); 
-                    //die means exit the excution of the query. If any errors occur, the program will exit.
-                }
-
-                //while loop to read each row of the table
-                while($row = $result->fetch_assoc()) {
-                    echo "
-                    <tr>
-                    <td>$row[patientID]</td>
-                    <td>$row[familyName]</td>
-                    <td>$row[givenName]</td>
-                    <td>$row[dob]</td>
-                    <td>$row[address]</td>
-                    <td>$row[sex]</td>
-                    <td>$row[weight]</td>
-                    <td>$row[height]</td>
-                    <td>$row[medicalHistory]</td>
-                    <td>$row[allergies]</td>
-                    <td>$row[clinicalStudyID]</td>
-                    <td>$row[clinicalStudyName]</td>
-                    <td>
-                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/patientRecordsFolder/editPatientRecord.php?patientID=$row[patientID]'>Edit</a>
-                        
-                        <a class='btn btn-danger btn-sm' href='/clinicalTestingWebsite/patientRecordsFolder/deletePatientRecord.php?patientID=$row[patientID]'>delete</a>
                     </td>
                     </tr>
                     ";
