@@ -207,11 +207,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
 			<li>
 				<label for="clinicalStudyID">Clinical Study ID:</label>
-				<input type="text" id="clinicalStudyID" name="clinicalStudyID" />
+				<input type="text" id="clinicalStudyID" name="clinicalStudyID" value = "Unassigned" />
 			</li>
 			<li>
 				<label for="clinicalStudyName">Clinical Study Name:</label>
-				<input type="text" id="clinicalStudyName" name="clinicalStudyName"/>
+				<input type="text" id="clinicalStudyName" name="clinicalStudyName" value = "Unassigned"/>
 			</li>
             <br>
             <?php
