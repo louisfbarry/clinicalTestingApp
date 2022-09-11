@@ -11,7 +11,6 @@ $connection = new mysqli($servername, $username, $password, $database);
 
 
 //Initialising Variables for the form! We can now store them into the values of the form inputs
-$patientID = "";
 $familyName = "";
 $givenName = "";
 $dob = "";
@@ -22,13 +21,12 @@ $height = "";
 $medicalHistory = "";
 $allergies = "";
 $clinicalStudyID = "";
-$clincalStudyName = "";
+$clinicalStudyName = "";
 
 $errorMessage = "";
 $successMessage = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $patientID = $_POST["patientID"];
     $familyName = $_POST["familyName"];
     $givenName = $_POST["givenName"];
     $dob = $_POST["dob"];
@@ -37,13 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $weight = $_POST["weight"];
     $height = $_POST["height"];
     $medicalHistory= $_POST["medicalHistory"];
-    $address = $_POST["address"];
+    $allergies = $_POST["allergies"];
+    $clinicalStudyID = $_POST["clinicalStudyID"];
+    $clinicalStudyName = $_POST["clinicalStudyName"];
 
     do {
         if (
-             empty($studyExpertise) || empty($studyPhase)
-            || empty($eligibility) || empty($clinicalStudyDescription) || empty($onStudy) || empty($patientsEnrolledNumber)
-        ) {
+             empty($familyName) || empty($givenName) || empty($dob) || empty($address) || empty($sex) || empty($weight) || empty($height) || empty($medicalHistory)
+             || empty($allergies) || empty($clinicalStudyID) || empty($clinicalStudyName)
+        )
+        {
             $errorMessage = "All the fields are required";
             break;
         } //Error message that displays if any are the inputs are submitted empty
@@ -52,9 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         //Inserting values inputted into our database table!
 
-        $sql = "INSERT INTO clinicalstudies (studyExpertise, studyPhase, eligibility, clinicalStudyDescription, onStudy, patientsEnrolledNumber) " .
-        "VALUES ('$studyExpertise','$studyPhase','$eligibility','$clinicalStudyDescription',
-        '$onStudy', '$patientsEnrolledNumber')";
+        $sql = "INSERT INTO patientrecords (familyName, givenName, dob, address, sex, weight, height, medicalHistory, allergies, clinicalStudyID, clinicalStudyName) " .
+        "VALUES ('$familyName','$givenName','$dob','$address',
+        '$sex', '$weight', '$height', '$medicalHistory', '$allergies', '$clinicalStudyID', '$clinicalStudyName')";
         //Now excuting the sql query
         $result = $connection->query($sql);
 
@@ -65,17 +66,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
 
-        $studyExpertise = "";
-        $studyPhase = "";
-        $eligibility = "";
-        $clinicalStudyDescription = "";
-        $onStudy = "Yes";
-        $patientsEnrolledNumber = "";
+        $familyName = "";
+        $givenName = "";
+        $dob = "";
+        $address = "";
+        $sex = "";
+        $weight = "";
+        $height = "";
+        $medicalHistory = "";
+        $allergies = "";
+        $clinicalStudyID = "";
+        $clinicalStudyName = "";
 
-        $successMessage = "Client added successfully";
+        $successMessage = "Patient added successfully";
 
         //To redirect the user back to the list page once a form is submitted
-        header("location: /clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php");
+        header("location: /clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php");
         exit;
     } while (false);
 }
@@ -87,6 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 	<title>Patient Medical Record</title>
 	<style>
 		li {
@@ -128,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<div class="topnav">
 		<div id="topnav">
 			<a href="../Homepage.html">Homepage</a>
-			<a href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Patient%20Record%20List.php">Patient Record List</a>
+			<a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Patient Record List</a>
 			<a href="../Clinical%20Study%20form%20and%20list%20files/Clinical%20Studies%20List.php">Clinical Study List</a>
 			<a
 				href="../Trial%20Organisation%20form%20and%20files/Trial%20Organisation%20list.php">Trial
@@ -142,35 +149,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<br><br>
 
 	<form method="post">
-
+    <?php
+            //Message that displays if the form is submitted empty
+            if (!empty($errorMessage)) {
+                echo "
+                <div class = 'alert alert-warning alert-dismissible fade show' role = 'alert'> 
+                <strong> $errorMessage</strong>
+                <button type = 'button' class = 'btn-close' data-bs-dismiss = 'alert' aria-label = 'Close'></button>
+                </div>
+                ";
+            }
+            ?>
 		<ul>
 			<!-- <li>
 				<a href="Patient Record List.html">Back to Patient Record List</a>
 			</li> -->
 			<li>
-				<label for="patientID">Patient ID:</label>
-				<input type="number" id="patientID" name="patientID" placeholder="Enter Patient ID:">
-			</li>
-			<li>
 				<label for="familyName">Family Name:</label>
-				<input type="text" id="familyName" name="familyName" placeholder="Enter family name">
+				<input type="text" id="familyName" name="familyName" placeholder="Enter family name" />
 			</li>
 			<li>
 				<label for="givenName">Given Names:</label>
-				<input type="text" id="givenName" name="givenName" placeholder="Enter given names">
+				<input type="text" id="givenName" name="givenName" placeholder = "Enter given names" />
 			</li>
 			<li>
 				<label for="DOB">Date of birth:</label>
-				<input type="date" name="dob">
+				<input type="date" name="dob" />
 			</li>
 			<li>
 				<label for="address">Address:</label>
-				<input type="text" id="address" name="address" placeholder="Enter address">
+				<input type="text" id="address" name="address" placeholder="Enter address" />
 			</li>
 			<li>
 				<label for="sex">Gender:</label>
 				<label for="male">
-					<input type="radio" name="sex" id="male" value = "Male" checked /><span>Male</span>
+					<input type="radio" name="sex" id="male" value = "male" checked /><span>Male</span>
 				</label>
 				<label for="female">
 					<input type="radio" name="sex" id="female" value = "Female" checked /><span>Female</span>
@@ -178,16 +191,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
 			<li>
 				<label for="weight">Weight:</label>
-				<input type="text" id="weight" name="weight" placeholder="Enter weight in kilograms">
+				<input type="text" id="weight" name="weight" placeholder="Enter weight in kilograms" />
 			</li>
 			<li>
 				<label for="height">Height:</label>
-				<input type="text" id="height" name="height" placeholder="Enter height in centimeters">
+				<input type="text" id="height" name="height" placeholder="Enter height in centimeters" />
 			</li>
 			<li>
 				<label for="medicalHistory">Medical History:</label>
-				<textarea id="medicalHistory" name="medicalHistory"
-					placeholder="Enter patient medical history"></textarea>
+				<textarea id="medicalHistory" name="medicalHistory" placeholder="Enter patient medical history"></textarea>
 			</li>
 			<li>
 				<label for="allergies">Allergies:</label>
@@ -195,12 +207,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
 			<li>
 				<label for="clinicalStudyID">Clinical Study ID:</label>
-				<input type="text" id="clinicalstudyID" name="clinicalStudyID" value = "Unassigned">
+				<input type="text" id="clinicalStudyID" name="clinicalStudyID" />
 			</li>
 			<li>
 				<label for="clinicalStudyName">Clinical Study Name:</label>
-				<input type="text" id="clinicalstudyName" name="clinicalStudyName" value = "Unassigned">
+				<input type="text" id="clinicalStudyName" name="clinicalStudyName"/>
 			</li>
+            <br>
+            <?php
+            if (!empty($successMessage)) {
+                //We use the javascript sourced from the Bootstrap website (See header) here. It allows us to remove the alerts once they have been read.
+                echo "
+                <div class = 'alert alert-success alert-dismissible fade show' role = 'alert'> 
+                <strong>$successMessage</strong>
+                <button type = 'button' class = 'btn-close' data-bs-dismiss = 'alert' aria-label = 'Close'></button>
+                </div>
+                ";
+            }
+            ?>
+            <li>
+                <div class="buttonHolder">
+                    <button type="submit" class="btn btn-outline-success">Create Patient Record</button>
+                    <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php" role="button">Cancel</a>
 			<li>
 				<div class="buttonHolder">
 					<input type="submit" value="Create Patient Record">
@@ -208,8 +236,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
 		</ul>
 	</form>
-
-
 </body>
 
 </html>

@@ -27,7 +27,7 @@
     </div>
     <div class="container my-5">
         <h2> List of Patient Records </h2>
-        <a class="btn btn-primary" href="/clinicalTestingWebsite/clinicalStudiesFolder/createClinicalStudy.php" role="button">New Patient Record</a>
+        <a class="btn btn-primary" href="/clinicalTestingWebsite/patientRecordsFolder/createPatientRecord.php" role="button">New Patient Record</a>
         <br>
         <table class="table">
             <thead>
@@ -90,9 +90,9 @@
                     <td>$row[clinicalStudyID]</td>
                     <td>$row[clinicalStudyName]</td>
                     <td>
-                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/patientRecordsFolder/editPatientRecord?patientID=$row[patientID]'>Edit</a>
+                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/patientRecordsFolder/editPatientRecord.php?patientID=$row[patientID]'>Edit</a>
                         
-                        <a class='btn btn-danger btn-sm' href='/clinicalTestingWebsite/patientRecordsFolder/deletePatientRecord?patientID=$row[patientID]'>delete</a>
+                        <a class='btn btn-danger btn-sm' href='/clinicalTestingWebsite/patientRecordsFolder/deletePatientRecord.php?patientID=$row[patientID]'>delete</a>
                     </td>
                     </tr>
                     ";
@@ -103,6 +103,8 @@
             </tbody>
         </table>
     </div>
+
+    
 </body>
 
 </html>
