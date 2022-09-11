@@ -21,7 +21,7 @@
             <a href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php">Clinical Study List</a>
             <a href="../Trial%20Organisation%20form%20and%20files/Trial%20Organisation%20list.php">Trial
                 Organisation List</a>
-            <a href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Observation%20and%20Treatment%20list.php">Obervation
+            <a href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Observation%20and%20Treatment%20list.php">Observation
                 / Treatment List</a>
         </div>
     </div>
@@ -42,7 +42,7 @@
         <th>Temperature High?</th>
         <th>Heart Rate High?</th>
         <th>Addtional Observation Notes</th>
-        </tr>";
+        </tr>
                 </tr>
             </thead>
             <tbody>
