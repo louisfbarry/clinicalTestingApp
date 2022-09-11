@@ -26,19 +26,23 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2> List of Clinical Studies </h2>
+        <h2> List of Observation/Treatments </h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/clinicalStudiesFolder/createClinicalStudy.php" role="button">New Clinical Study </a>
         <br>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Clinical Study ID</th>
-                    <th>Clincal Study Name / Expertise</th>
-                    <th>Clinical Study Phase</th>
-                    <th>Eligibility</th>
-                    <th>Clinical Study description</th>
-                    <th>Are Patients On Study?</th>
-                    <th>Number of patients enrolled</th>
+                echo "<table><tr>
+        <th>patient ID</th>
+        <th>patient Name</th>
+        <th>Clinical Study Name</th>
+        <th>Observation Date and Time</th>
+        <th>Treatment Description</th>
+        <th>Pain Score:</th>
+        <th>Temperature High?</th>
+        <th>Heart Rate High?</th>
+        <th>Addtional Observation Notes</th>
+        </tr>";
                 </tr>
             </thead>
             <tbody>
