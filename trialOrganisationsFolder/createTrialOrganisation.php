@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Patient
                 Record
                 List</a>
-            <a href="http://localhost/Group%202%20Secret%20files/Group-2-s-Secret-files/Clinical%20Study%20form%20and%20list%20files/Clinical%20Studies%20List.php">Clinical
+            <a href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php">Clinical
                 Study List</a>
             <a href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial
                 Organisation List</a>
