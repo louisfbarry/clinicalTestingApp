@@ -1,5 +1,4 @@
-<?php //Had to change the file type to php. This is so we can add php code!
-
+<?php
 //To connect the form to the database
 $servername = "localhost"; // Our server is called localhost as the server is installed on this PC
 $username = "root"; // Our username is called root as that is the default username
@@ -10,52 +9,71 @@ $database = "clinicaltesting2"; // The database is known as clinicaltesting
 $connection = new mysqli($servername, $username, $password, $database);
 
 
-//Initialising Variables for the form! We can now store them into the values of the form inputs
+$trialOrgID = "";
 $trialOrgName = "";
 $trialOrgDesc = "";
 $cExpertise = "";
-
 $errorMessage = "";
 $successMessage = "";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    //GET Method: To show the data of the Clinical Trial
+
+    // IF statement to see if the ID exists in the database. If it does not, the user is redirected back to the list page
+    if (!isset($_GET["trialOrgID"])) {
+        header("location: /clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php");
+        exit;
+    }
+
+    //If the ID does exist in the database, 
+    $trialOrgID = $_GET["trialOrgID"];
+
+    //Read the row of the selected client from the database table
+    $sql = "SELECT * FROM trialOrg WHERE trialOrgID = $trialOrgID";
+    $result = $connection->query($sql);
+    $row = $result->fetch_assoc(); //This reads the data of the study from the database
+
+    if (!$row) {
+        header("location: /clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php");
+        exit;
+    }
+    //These variables are already displayed in the form
+    $trialOrgName = $row["trialOrgName"];
+    $trialOrgDesc = $row["trialOrgDesc"];
+    $cExpertise = $row["cExpertise"];
+} else {
+    // POST method: to update the data of the Clinical Trial after it has been edited
+    $trialOrgID = $_POST["trialOrgID"];
     $trialOrgName = $_POST["trialOrgName"];
     $trialOrgDesc = $_POST["trialOrgDesc"];
     $cExpertise = $_POST["cExpertise"];
 
+
     do {
         if (
-            empty($trialOrgName) || empty($trialOrgDesc) || empty($cExpertise)
-        ) {
+             empty($trialOrgID) || empty($trialOrgName) || empty($trialOrgDesc) || empty($cExpertise)) {
             $errorMessage = "All the fields are required";
             break;
-        } //Error message that displays if any are the inputs are submitted empty
+        } //Error message that displays if any are the inputs are submitted empty\
 
-        // to add a new client to the database\
 
-        //Inserting values inputted into our database table!
+        //Query to update the database
+        $sql = "UPDATE trialOrg SET trialOrgName = '$trialOrgName', trialOrgDesc = '$trialOrgDesc', cExpertise = '$cExpertise' WHERE trialOrgID = $trialOrgID";
 
-        $sql = "INSERT INTO trialOrg (trialOrgName, trialOrgDesc, cExpertise) " .
-            "VALUES ('$trialOrgName','$trialOrgDesc','$cExpertise')";
-        //Now excuting the sql query
+
         $result = $connection->query($sql);
 
-        //If we have any error during the SQL query, this error message is displayed
-        if (!$result) {
+         //If we have any error during the SQL query, this error message is displayed
+         if (!$result) {
             $errorMessage = "Invalid query: " . $connection->error;
             break;
         }
 
+        $successMessage = "Client updated correctly";
 
-        $trialOrgName = "";
-        $trialOrgDesc = "";
-        $cExpertise = "";
-
-        $successMessage = "Trial Organisation added successfully";
-
-        //To redirect the user back to the list page once a form is submitted
         header("location: /clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php");
         exit;
+
     } while (false);
 }
 ?>
@@ -111,22 +129,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ";
             }
             ?>
-            <label for="trialorgid">Trial Organisation ID:</label>
-            <input type="number" id="trialOrgID" name="trialorgID" />
+            <input type="hidden" name="trialorgID" value = <?php echo $trialOrgID;?> />
             <li>
                 <label for="trialOrgName">Trial Organisation Name:</label>
-                <input type="text" id="trialOrgName" name="trialOrgName" />
+                <input type="text" id="trialOrgName" name="trialOrgName" value = <?php echo $trialOrgName;?> />
             </li>
             <li>
 
             </li>
             <li>
                 <label for="trialOrgDesc">Trial Organisation Description</label>
-                <textarea id="trialOrgDesc" name="trialOrgDesc" placeholder="Enter any extra details about the Trial Organisation here"></textarea>
+                <textarea id="trialOrgDesc" name="trialOrgDesc" placeholder="Enter any extra details about the Trial Organisation here"><?php echo $trialOrgDesc;?></textarea>
             </li>
             <li>
                 <label for="cExpertise">Clinical Trial Expertise: :</label>
-                <textarea id="cExpertise" name="cExpertise" placeholder="Enter the Expertise of the Clinical Trials here E.g Caridology"></textarea>
+                <textarea id="cExpertise" name="cExpertise" placeholder="Enter the Expertise of the Clinical Trials here E.g Caridology"><?php echo $cExpertise;?></textarea>
             </li>
             <br>
             <?php
