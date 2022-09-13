@@ -32,10 +32,10 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>trialOrgID</th>
-                    <th>trialOrgName</th>
-                    <th>trialOrgDesc</th>
-                    <th>cExpertise</th>
+                    <th>Trial Organisation ID</th>
+                    <th>Trial Organisation Name</th>
+                    <th>Organisation Description</th>
+                    <th>Clinical Expertise</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,10 +68,10 @@
                 while($row = $result->fetch_assoc()) {
                     echo "
                     <tr>
-                    <td>$row[trialOrgID]</td>
-                    <td>$row[trialOrgName]</td>
-                    <td>$row[trialOrgDesc]</td>
-                    <td>$row[cExpertise]</td>
+                    <td>$row[trialorgid]</td>
+                    <td>$row[trialorgname]</td>
+                    <td>$row[trialorgdesc]</td>
+                    <td>$row[cexpertise]</td>
                     <td>
                         <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/trialOrganisationsFolder/editTrialOrganisation.php?trialOrgID=$row[trialOrgID]'>Edit</a>
                         
