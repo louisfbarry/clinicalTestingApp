@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <head>
     <meta charset="utf-8" />
-    <title>Create a Clinical Study Form</title>
+    <title>Create a Trial Organisation form</title>
     <link rel="stylesheet" href="../style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -94,56 +94,70 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <br>
     <br>
-    <form method="post">
-        <ul>
-            <div class="textOnForm">
-                <b>Clinical Study Information</b>
-            </div>
-            <?php
-            //Message that displays if the form is submitted empty
-            if (!empty($errorMessage)) {
-                echo "
-                <div class = 'alert alert-warning alert-dismissible fade show' role = 'alert'> 
-                <strong> $errorMessage</strong>
-                <button type = 'button' class = 'btn-close' data-bs-dismiss = 'alert' aria-label = 'Close'></button>
-                </div>
-                ";
-            }
-            ?>
-            <br>
-            <div class="inputBlackBorder">
-                <form method="post">
-                    <li>
-                        <label for="studyExpertise">Clinical Trial Title / Expertise:</label>
-                        <input type="text" id="studyExpertise" name="studyExpertise" value="<?php echo $studyExpertise; ?> " placeholder="Enter the Title of the Clinical Study here with the Expertise." />
-                    </li>
-                    <li>
-                        <label for="studyPhase">Clinical Study Phase:</label>
-                        <input type="text" id="studyPhase" name="studyPhase" value="<?php echo $studyPhase; ?> " placeholder="Enter the phase of the Clinical Study here (1-5)" />
-                    </li>
-                    <li>
-                        <label for="eligibility">Clinical Study Eligibility:</label>
-                        <textarea id="eligibility" name=eligibility value="<?php echo $eligibility; ?> " placeholder="E.g Patients must be 18 years old or greater"></textarea>
-                    </li>
-                    <li>
-                        <label for="clinicalStudyDescription">Clinical Study Description:</label>
-                        <textarea id="clinicalStudyDescription" name=clinicalStudyDescription value="<?php echo $clinicalStudyDescription; ?> " placeholder="Enter the start time of the Clinical Trial here and any extra details worth noting."></textarea>
-                    </li>
+    <!DOCTYPE html>
+<html>
 
-            </div>
-            <br>
-            <br>
-            <div class="inputBlackBorder">
-                <li>
-                    <label> Patients on-study? (Yes/No)</label>
-                    <input type="text" id="onStudy" name="onStudy" placeholder="Enter Yes or No here" value="<?php echo $onStudy; ?> " />
-                </li>
+<head>
+	<meta charset="utf-8" />
+	<title>Trial Organisation form</title>
+	<link rel="stylesheet" href="../style.css">
+</head>
 
-                <li>
-                    <label> Number of Patients enrolled? </label>
-                    <input type="text" id="patientsEnrolledNumber" name="patientsEnrolledNumber" value="<?php echo $patientsEnrolledNumber; ?> " placeholder="Enter the number of patients enrolled" />
-                </li>
-            </div>
+<body>
+	<div class="header">
+		<a href="../Homepage.html">
+			<img src="../Images/Hospital Logo.jpg" alt="St George Logo"></a>
+		<h1><a href="Homepage.html">Create A Patient Medical Record</a></h1>
+	</div>
+	<br>
+	<div class="topnav">
+		<div id="topnav">
+			<a href="../Homepage.html">Homepage</a>
+			<a href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Patient%20Record%20List.php">Patient Record
+				List</a>
+			<a
+				href="../Clinical%20Study%20form%20and%20list%20files/Clinical%20Studies%20List.php">Clinical
+				Study List</a>
+			<a
+				href="../Trial%20Organisation%20form%20and%20files/Trial%20Organisation%20list.php">Trial
+				Organisation List</a>
+			<a
+				href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Observation%20and%20Treatment%20list.php">Obervation
+				/ Treatment List</a>
+		</div>
+	</div>
+	<br>
+	<form action="Process_Create_a_Trial_Organisation_form.php" method="POST">
+		<ul>
+			<label for="trialorgid">Trial Organisation ID:</label>
+			<input type="number" id="trialorgid" name="trialorgid" />
+			<li>
+				<label for="trialorgname">Trial Organisation Name:</label>
+				<input type="text" id="trialorgname" name="trialorgname" />
+			</li>
+			<li>
+
+			</li>
+			<li>
+				<label for="trialorgdesc">Trial Organisation Description</label>
+				<textarea id="trialorgdesc" name="trialorgdesc"
+					placeholder="Enter any extra details about the Trial Organisation here"></textarea>
+			</li>
+			<li>
+				<label for="cexpertise">Clinical Trial Expertise: :</label>
+				<textarea id="cexpertise" name="cexpertise"
+					placeholder="Enter the Expertise of the Clinical Trials here E.g Caridology"></textarea>
+			</li>
+			<li>
+				<div class="buttonHolder">
+					<input type="submit" value="Create Trial Organisation">
+				</div>
+			</li>
+		</ul>
+	</form>
+</body>
+
+</html>
             <br>
             <?php
             if (!empty($successMessage)) {

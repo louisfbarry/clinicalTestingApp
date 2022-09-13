@@ -62,7 +62,7 @@
                     die("Connection failed: " . $connection->connect_error );
                 }
 
-                //SQL to read all the rows on the clinicalstudies table
+                //SQL to read all the rows on the patientrecords table
                 $sql = "SELECT * FROM patientrecords";
                 //The query will be executed and stored in the $result variable
                 $result = $connection->query($sql);
