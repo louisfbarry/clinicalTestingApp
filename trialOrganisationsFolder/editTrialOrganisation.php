@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 <textarea id="trialOrgDesc" name="trialOrgDesc" placeholder="Enter any extra details about the Trial Organisation here"><?php echo $trialOrgDesc;?></textarea>
             </li>
             <li>
-                <label for="cExpertise">Clinical Trial Expertise: :</label>
+                <label for="cExpertise">Clinical Trial Expertise:</label>
                 <textarea id="cExpertise" name="cExpertise" placeholder="Enter the Expertise of the Clinical Trials here E.g Caridology"><?php echo $cExpertise;?></textarea>
             </li>
             <br>

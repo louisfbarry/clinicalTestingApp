@@ -111,8 +111,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ";
             }
             ?>
-            <label for="trialorgid">Trial Organisation ID:</label>
-            <input type="number" id="trialOrgID" name="trialorgID" />
             <li>
                 <label for="trialOrgName">Trial Organisation Name:</label>
                 <input type="text" id="trialOrgName" name="trialOrgName" />
