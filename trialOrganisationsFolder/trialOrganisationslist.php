@@ -68,10 +68,10 @@
                 while($row = $result->fetch_assoc()) {
                     echo "
                     <tr>
-                    <td>$row[trialorgid]</td>
-                    <td>$row[trialorgname]</td>
-                    <td>$row[trialorgdesc]</td>
-                    <td>$row[cexpertise]</td>
+                    <td>$row[trialOrgID]</td>
+                    <td>$row[trialOrgName]</td>
+                    <td>$row[trialOrgDesc]</td>
+                    <td>$row[cExpertise]</td>
                     <td>
                         <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/trialOrganisationsFolder/editTrialOrganisation.php?trialOrgID=$row[trialorgid]'>Edit</a>
                         
