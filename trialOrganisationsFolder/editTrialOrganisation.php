@@ -99,14 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <div class="topnav">
         <div id="topnav">
             <a href="../Homepage.html">Homepage</a>
-            <a href="http://localhost/Group%202%20Secret%20files/Group-2-s-Secret-files/Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Patient%20Record%20List.php">Patient
+            <a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Patient
                 Record
                 List</a>
-            <a href="http://localhost/Group%202%20Secret%20files/Group-2-s-Secret-files/Clinical%20Study%20form%20and%20list%20files/Clinical%20Studies%20List.php">Clinical
+            <a href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php">Clinical
                 Study List</a>
             <a href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial
                 Organisation List</a>
-            <a href="http://localhost/Group%202%20Secret%20files/Group-2-s-Secret-files/Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Observation%20and%20Treatment%20list.php">Obervation
+            <a href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentList.php">Obervation
                 / Treatment List</a>
         </div>
     </div>

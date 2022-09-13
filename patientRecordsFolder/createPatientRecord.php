@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial
 				Organisation List</a>
 			<a
-				href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Observation%20and%20Treatment%20list.php">Obervation
+				href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentList.php">Obervation
 				/ Treatment List</a>
 		</div>
 	</div>
