@@ -18,7 +18,7 @@
     <div class="topnav">
         <div id="topnav">
             <a href="../Homepage.html">Homepage</a>
-            <a href="../Patient%20Record%20Form%20and%20Patient%20Record%20List%20files/Patient%20Record%20List.php">Patient Record
+            <a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Patient Record
                 List</a>
             <a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Clinical Study List</a>
             <a
