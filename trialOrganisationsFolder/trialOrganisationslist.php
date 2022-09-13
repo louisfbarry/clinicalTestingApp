@@ -73,9 +73,9 @@
                     <td>$row[trialOrgDesc]</td>
                     <td>$row[cExpertise]</td>
                     <td>
-                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/trialOrganisationsFolder/editTrialOrganisation.php?trialOrgID=$row[trialorgid]'>Edit</a>
+                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/trialOrganisationsFolder/editTrialOrganisation.php?trialOrgID=$row[trialOrgID]'>Edit</a>
                         
-                        <a class='btn btn-danger btn-sm' href='/clinicalTestingWebsite/trialOrganisationsFolder/deleteTrialOrganisation.php?trialOrgID=$row[trialorgid]'>Delete</a>
+                        <a class='btn btn-danger btn-sm' href='/clinicalTestingWebsite/trialOrganisationsFolder/deleteTrialOrganisation.php?trialOrgID=$row[trialOrgID]'>Delete</a>
                     </td>
                     </tr>
                     ";
