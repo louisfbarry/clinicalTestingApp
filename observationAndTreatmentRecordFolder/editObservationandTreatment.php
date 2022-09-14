@@ -27,7 +27,7 @@ $heartRateQuestion = "";
 $errorMessage = "";
 $successMessage = "";
 
-f ($_SERVER['REQUEST_METHOD'] == 'GET') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     //GET Method: To show the data of the Observation andTreatment
 
     // IF statement to see if the ID exists in the database. If it does not, the user is redirected back to the list page
@@ -189,9 +189,9 @@ f ($_SERVER['REQUEST_METHOD'] == 'GET') {
 					<?php
 					$painScore = $_REQUEST['painScore'];
 					if($painScore >= 5){
-						echo "Monitored in 30 mins later!"
+						echo "Monitored in 30 mins later!";
 					} else{
-						echo"Patient is normal!"
+						echo"Patient is normal!";
 					}
 					?>
 					<tr>
@@ -205,9 +205,9 @@ f ($_SERVER['REQUEST_METHOD'] == 'GET') {
 					<?php
 					$tempQuestion = $_REQUEST['tempQuestion'];
 					if($tempQuestion >= 5){
-						echo "Monitored in 30 mins later!"
+						echo "Monitored in 30 mins later!";
 					} else{
-						echo"Patient is normal!"
+						echo"Patient is normal!";
 					}
 					?>
 					<tr>
@@ -221,9 +221,9 @@ f ($_SERVER['REQUEST_METHOD'] == 'GET') {
 					<?php
 					$heartRateQuestion = $_REQUEST['heartRateQuestion'];
 					if($heartRateQuestion >= 5){
-						echo "Monitored in 30 mins later!"
+						echo "Monitored in 30 mins later!";
 					} else{
-						echo"Patient is normal!"
+						echo"Patient is normal!";
 					}
 					?>
 				</table>
