@@ -26,23 +26,23 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2> List of Observation/Treatments </h2>
-        <a class="btn btn-primary" href="/clinicalTestingWebsite/clinicalStudiesFolder/createClinicalStudy.php" role="button">New Clinical Study </a>
+        <h2> List of Observation and Treatment Records </h2>
+        <a class="btn btn-primary" href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/createObservationandTreatment.php" role="button">New Observation/Treatment Record </a>
         <br>
         <table class="table">
             <thead>
                 <tr>
-                echo "<table><tr>
-        <th>patient ID</th>
-        <th>patient Name</th>
-        <th>Clinical Study Name</th>
-        <th>Observation Date and Time</th>
-        <th>Treatment Description</th>
-        <th>Pain Score:</th>
-        <th>Temperature High?</th>
-        <th>Heart Rate High?</th>
-        <th>Addtional Observation Notes</th>
-        </tr>
+                    <th>Observation-and-Treatment ID</th>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Clincal Study Name</th>
+                    <th>Observation Date and Time</th>
+                    <th>Treatment Description</th>
+                    <th>Pain Score</th>
+                    <th>Temperature High?</th>
+                    <th>Heart Rate High?</th>
+                    <th>Additional Observation Notes</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -61,7 +61,7 @@
                 }
 
                 //SQL to read all the rows on the clinicalstudies table
-                $sql = "SELECT * FROM clinicalstudies";
+                $sql = "SELECT * FROM patientObservationAndTreatment";
                 //The query will be executed and stored in the $result variable
                 $result = $connection->query($sql);
 
@@ -75,17 +75,20 @@
                 while($row = $result->fetch_assoc()) {
                     echo "
                     <tr>
-                    <td>$row[studyID]</td>
-                    <td>$row[studyExpertise]</td>
-                    <td>$row[studyPhase]</td>
-                    <td>$row[eligibility]</td>
-                    <td>$row[clinicalStudyDescription]</td>
-                    <td>$row[onStudy]</td>
-                    <td>$row[patientsEnrolledNumber]</td>
+                    <td>$row[observationandTreatmentID]</td>
+                    <td>$row[patientID]</td>
+                    <td>$row[patientName]</td>
+                    <td>$row[clinicalStudyName]</td>
+                    <td>$row[observationDateandTime]</td>
+                    <td>$row[treatmentDescription]</td>
+                    <td>$row[painScore]</td>
+                    <td>$row[tempQuestion]</td>
+                    <td>$row[heartRateQuestion]</td>
+                    <td>$row[additionalObservationNotes]</td>
                     <td>
-                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/clinicalStudiesFolder/editClinicalStudy.php?studyID=$row[studyID]'>Edit</a>
+                        <a class='btn btn-primary btn-sm' href='/clinicalTestingWebsite/observationAndTreatmentRecordFolder/editObservationandTreatment.php?observationandTreatmentID=$row[observationandTreatmentID]'>Edit</a>
                         
-                        <a class='btn btn-danger btn-sm' href='/clinicalTestingWebsite/clinicalStudiesFolder/deleteClinicalStudy.php?studyID=$row[studyID]'>Delete</a>
+                        <a class='btn btn-danger btn-sm' href='/clinicalTestingWebsite/observationAndTreatmentRecordFolder/editObservationandTreatment.php?observationandTreatmentID=$row[observationandTreatmentID]'>Delete</a>
                     </td>
                     </tr>
                     ";
@@ -177,3 +180,4 @@
 </body>
 
 </html>
+

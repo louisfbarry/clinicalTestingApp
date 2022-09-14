@@ -65,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $address = $_POST["address"];
     $sex = $_POST["sex"];
     $weight = $_POST["weight"];
+    $height = $_POST["height"];
     $medicalHistory = $_POST["medicalHistory"];
     $allergies = $_POST["allergies"];
     $clinicalStudyID = $_POST["clinicalStudyID"];

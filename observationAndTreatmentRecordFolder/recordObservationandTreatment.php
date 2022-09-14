@@ -32,7 +32,7 @@
 	<br>
 	<br>
 	<ul>
-		<form action="Process_Observation_and_Treatment_form.php" method="post">
+		<form method="post">
 			<br>
 			<li>
 				<label for="patientID:">Patient ID:</label>

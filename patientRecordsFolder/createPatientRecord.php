@@ -230,9 +230,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <button type="submit" class="btn btn-outline-success">Create Patient Record</button>
                     <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php" role="button">Cancel</a>
 			<li>
-				<div class="buttonHolder">
-					<input type="submit" value="Create Patient Record">
-				</div>
 			</li>
 		</ul>
 	</form>

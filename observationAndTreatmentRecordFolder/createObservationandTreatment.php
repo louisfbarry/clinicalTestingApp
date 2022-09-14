@@ -11,7 +11,7 @@ $connection = new mysqli($servername, $username, $password, $database);
 
 
 //Initialising Variables for the form! We can now store them into the values of the form inputs
-$observationID = "";
+$observationandTreatmentID = "";
 $patientID = "";
 $patientName = "";
 $clinicalStudyName = "";
@@ -21,6 +21,7 @@ $treatmentDescription = "";
 $painScore = "";
 $tempQuestion = "";
 $heartRateQuestion = "";
+$addtionalObservationNotes = "";
 
 
 
@@ -28,11 +29,9 @@ $errorMessage = "";
 $successMessage = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $observationID = $_POST["observationID"];
 	$patientID = $_POST["patientID"];
     $patientName = $_POST["patientName"];
     $clinicalStudyName = $_POST["clinicalStudyName"];
-    $clinicalStudyDescription = $_POST["clinicalStudyDescription"];
     $observationDateandTime = $_POST["observationDateandTime"];
     $treatmentDescription = $_POST["treatmentDescription"];
     $painScore = $_POST["painScore"];
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     do {
         if (
-			empty($observationID) || empty($patientID) || empty($patientName)
+			empty($observationandTreatmentID) || empty($patientID) || empty($patientName)
             || empty($clinicalStudyName) || empty($$clinicalStudyDescription) || empty($observationDateandTime) 
             || empty($treatmentDescription) 
             || empty($painScore) || empty($tempQuestion) || empty($heartRateQuestion) || empty($additionalObservationNotes)
@@ -55,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         //Inserting values inputted into our database table!
 
-        $sql = "INSERT INTO patientobservationandtreatment (observationID, patientID, patientName, clinicalStudyName, 
+        $sql = "INSERT INTO patientobservationandtreatment (observationandTreatmentID, patientID, patientName, clinicalStudyName, 
         clinicalStudyDescription, observationDateandTime, treatmentDescriptio, painScore, tempQuestion, heartRateQuestion, additionalObservationNotes) " .
-        "VALUES ('$observationID','$patientID','$patientName','$clinicalStudyName','$clinicalStudyDescription',
+        "VALUES ('$observationandTreatmentID','$patientID','$patientName','$clinicalStudyName','$clinicalStudyDescription',
         '$observationDateandTime, '$treatmentDescription', $painScore, $tempQuestion, $heartRateQuestion, $additionalObservationNotes)";
         //Now excuting the sql query
         $result = $connection->query($sql);
@@ -69,22 +68,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
 
-        $observationID = "";
+        $observationandTreatmentID = "";
 		$patientID = "";
         $patientName = "";
         $clinicalStudyName = "";
-        $clinicalStudyDescription = "";
         $observationDateandTime = "";
         $treatmentDescription = "";
         $painScore = "";
-        $tempQuestion = "Yes";
-        $heartRateQuestion = "Yes";
+        $tempQuestion = "";
+        $heartRateQuestion = "";
         $additionalObservationNotes = "";
 
-        $successMessage = "Client added successfully";
+        $successMessage = "Observation / Treatment Recorded successfully";
 
         //To redirect the user back to the list page once a form is submitted
-        header("location: /clinicalTestingWebsite/clinicalStudiesFolder/observationAndTreatmentList.php");
+        header("location: /clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentList.php");
         exit;
     } while (false);
 }
@@ -123,15 +121,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<br>
 	<br>
 	<ul>
-		<form action="Process_Observation_and_Treatment_form.php" method="post">
+		<form method="post">
 			<br>
 			<li>
-				<label for="observationID:">Patient ID:</label>
-				<input type="number" id="observationID" name="observationID" placeholder="Enter Observation ID (Number)" />
-			</li>
-			<li>
 				<label for="patientID:">Patient ID:</label>
-				<input type="number" id="patientID" name="patientID" placeholder="Enter Patient ID (Number)" />
+				<input type="number" id="patientID" name="patientID" placeholder="Enter patientID (Number)" />
 			</li>
 			<li>
 				<label for="patientName:">Patient Name:</label>
@@ -158,53 +152,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						<th>Result</th>
 					</tr>
 					<tr>
-						<td>From a rating (1-10) Did the patient feel any pain from the treatment?</td>
+						<td>From a rating (1-10) Did the patient feel any pain from the treatment? <br><br>(If the Pain Score is 5 or above, monitor the patient for 30min after treatment)</td>
 						<td><label for="painScore"> Pain Score</label>
 							<input type="number" id="painScore" name="painScore" min="1" max="10"
-								placeholder="Enter a digit between 1-10">
-						</td>
+								placeholder="Enter a digit between 1-10"/>
 						</td>
 					</tr>
-					<?php
-					$painScore = $_REQUEST['painScore'];
-					if($painScore >= 5){
-						echo "Monitored in 30 mins later!";
-					} else{
-						echo"Patient is normal!";
-					}
-					?>
 					<tr>
-						<td>Has the Patients Temperature increased or decreased by 2+ Degrees Celcius?</td>
+						<td><br>Has the Patients Temperature increased or decreased by +2 Degrees Celcius? <br><br>(If the answer is 'YES' apply a cool treatment to the paitient and perfrom another check after 30min)</td>
 						<td>
 							<label>Yes/No</label>
 							<input type="text" id="tempQuestion" name="tempQuestion"
 								placeholder="Enter Yes/No"></input>
 						</td>
 					</tr>
-					<?php
-					$tempQuestion = $_REQUEST['tempQuestion'];
-					if($tempQuestion >= 5){
-						echo "Monitored in 30 mins later!";
-					} else{
-						echo"Patient is normal!";
-					}
-					?>
 					<tr>
-						<td>Has the Patient's heart rate increased OR is it abnormal?</td>
+						<td><br>Has the Patient's heart rate increased OR is it abnormal? <br><br>(If the answer is 'YES' calm the patient down and re-check their heart rate after 30min</td>
 						<td><label>Yes/No</label>
 							<input type="text" id="heartRateQuestion" name="heartRateQuestion"
 								placeholder="Enter Yes/No"></input>
 							<p class ="output" id="output3"></p>
 						</td>
 					</tr>
-					<?php
-					$heartRateQuestion = $_REQUEST['heartRateQuestion'];
-					if($heartRateQuestion >= 5){
-						echo "Monitored in 30 mins later!";
-					} else{
-						echo"Patient is normal!";
-					}
-					?>
 				</table>
 			</li>
 			<li>
@@ -213,9 +182,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					placeholder="Enter any addtional notes about the Observation (Especially if the above Observation table is not applicable)"></textarea>
 			</li>
 			<li>
-				<div class="buttonHolder">
-					<input type="submit" value="Record Observation / Treatment" onclick="myFunction()">
-				</div>
+			<?php
+            if (!empty($successMessage)) {
+                //We use the javascript sourced from the Bootstrap website (See header) here. It allows us to remove the alerts once they have been read.
+                echo "
+                <div class = 'alert alert-success alert-dismissible fade show' role = 'alert'> 
+                <strong>$successMessage</strong>
+                <button type = 'button' class = 'btn-close' data-bs-dismiss = 'alert' aria-label = 'Close'></button>
+                </div>
+                ";
+            }
+            ?>
+			<div class="buttonHolder">
+                    <button type="submit" class="btn btn-outline-success">Record Observation/Treatment</button>
+                    <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/ObservationAndTreatmentlist.php" role="button">Cancel</a>
+                </div>
 			</li>
 	</ul>
 	</form>
