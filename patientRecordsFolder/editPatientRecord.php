@@ -244,7 +244,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             ?>
             <li>
                 <div class="buttonHolder">
-                    <button type="submit" class="btn btn-outline-success">Create Patient Record</button>
+                    <button type="submit" class="btn btn-outline-success">Edit Patient Record</button>
                     <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php" role="button">Cancel</a>
             <li>
                 <div class="buttonHolder">

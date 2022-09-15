@@ -13,6 +13,7 @@ $trialOrgID = "";
 $trialOrgName = "";
 $trialOrgDesc = "";
 $cExpertise = "";
+
 $errorMessage = "";
 $successMessage = "";
 
@@ -69,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             break;
         }
 
-        $successMessage = "Client updated correctly";
+        $successMessage = "Trial Organisation updated correctly";
 
         header("location: /clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php");
         exit;
@@ -129,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 ";
             }
             ?>
-            <input type="hidden" name="trialorgID" value = <?php echo $trialOrgID;?> />
+            <input type="hidden" name="trialOrgID" value = <?php echo $trialOrgID;?> />
             <li>
                 <label for="trialOrgName">Trial Organisation Name:</label>
                 <input type="text" id="trialOrgName" name="trialOrgName" value = <?php echo $trialOrgName;?> />
@@ -159,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             ?>
             <li>
                 <div class="buttonHolder">
-                    <button type="submit" class="btn btn-outline-success">Create Trial Organisation</button>
+                    <button type="submit" class="btn btn-outline-success">Edit Trial Organisation</button>
                     <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Cancel</a>
                 </div>
             </li>
