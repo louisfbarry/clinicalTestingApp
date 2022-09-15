@@ -161,6 +161,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								placeholder="Enter Yes/No"></input>
 						</td>
 					</tr>
+					<script>
+						let comment1;
+						if(painScore >= 5) {
+							comment1 = 'Monitored in 30 mins!'
+						} else{
+							comment1 = 'Patient is fine!'
+						}
+						document.getElementById("painScore").innerHTML = comment1;
+					</script>
 					<tr>
 						<td><br>Has the Patient's heart rate increased OR is it abnormal? <br><br>(If the answer is 'YES' calm the patient down and re-check their heart rate after 30min</td>
 						<td><label>Yes/No</label>
