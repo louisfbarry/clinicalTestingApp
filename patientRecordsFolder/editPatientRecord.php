@@ -8,7 +8,7 @@ $database = "clinicaltesting2"; // The database is known as clinicaltesting
 // Create a connection to the database
 $connection = new mysqli($servername, $username, $password, $database);
 
-
+$patientID = "";
 $familyName = "";
 $givenName = "";
 $dob = "";
@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $address = $row["address"];
     $sex = $row["sex"];
     $weight = $row["weight"];
+    $height = $row["height"];
     $medicalHistory = $row["medicalHistory"];
     $allergies = $row["allergies"];
     $clinicalStudyID = $row["clinicalStudyID"];
@@ -73,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     do {
         if (
-            empty($familyName) || empty($givenName) || empty($dob) || empty($address) || empty($sex) || empty($weight) || empty($height) || empty($medicalHistory)
+            empty($patientID) || empty($familyName) || empty($givenName) || empty($dob) || empty($address) || empty($sex) || empty($weight) || empty($height) || empty($medicalHistory)
             || empty($allergies) || empty($clinicalStudyID) || empty($clinicalStudyName)
         ) {
             $errorMessage = "All the fields are required";
@@ -211,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </li>
             <li>
                 <label for="height">Height:</label>
-                <input type="text" id="height" name="height" value="<?php echo $height; ?> " placeholder="Enter height in centimeters">
+                <input type="text" id="height" name="height" value="<?php echo $height; ?>" placeholder="Enter height in centimeters">
             </li>
             <li>
                 <label for="medicalHistory">Medical History:</label>
