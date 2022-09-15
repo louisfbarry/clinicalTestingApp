@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2022 at 10:05 AM
+-- Generation Time: Sep 15, 2022 at 08:04 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,9 +42,9 @@ CREATE TABLE `clinicalstudies` (
 --
 
 INSERT INTO `clinicalstudies` (`studyID`, `studyExpertise`, `studyPhase`, `eligibility`, `clinicalStudyDescription`, `onStudy`, `patientsEnrolledNumber`) VALUES
-(2, 'Cardiology - How it affects the elderly ', 2, 'Eligibility\r\n\r\nNo patients below the age of 18', 'Description Clinical study starts on 6/9/22', ' No ', '6'),
-(3, ' This is the one', 1, '444555', 'Description', ' YES', ' NO'),
-(4, ' 1111', 1, 'YES', 'What', ' YES', ' YES');
+(4, ' 1111  ', 1, 'YES', 'What', ' YES  ', '5 '),
+(13, ' Cardiology', 5, 'paitents must be 18 years Old or above', 'Description', ' Yes', ' 5'),
+(15, ' Cardiology4', 4, 'Paitients must be 18+', 'Description', ' Yes', ' 4');
 
 -- --------------------------------------------------------
 
@@ -70,20 +70,12 @@ CREATE TABLE `patientobservationandtreatment` (
 --
 
 INSERT INTO `patientobservationandtreatment` (`observationandTreatmentID`, `patientID`, `patientName`, `clinicalStudyName`, `observationDateandTime`, `treatmentDescription`, `painScore`, `tempQuestion`, `heartRateQuestion`, `additionalObservationNotes`) VALUES
-(0, 111, 'Nick', 'caridology', '2022-08-18 09:54:00.000000', 'yes', 1, 'Yes', 'Yes', 'tt'),
-(0, 5555555, 'Nick Thanh', 'caridology', '2022-08-18 11:00:00.000000', 'Treat', 1, 'Yes', 'Yes', 'All is good'),
-(0, 1212121, 'Nick whoopsie', 'caridology', '2022-08-11 14:42:00.000000', 'Hello there', 6, 'Yes', 'yes', 'Hey'),
-(0, 1212121, 'Nick whoopsie', 'caridology', '2022-08-11 14:42:00.000000', 'Hello there', 6, 'Yes', 'yes', 'Hey'),
-(0, 2147483647, '111111111', 'Hello', '2022-08-05 14:50:00.000000', 'hjfjdfidjfk', 1, 'Yes', 'Yes', 'Hello there\r\n'),
-(0, 111232, 'Nick', 'Heartrate', '2022-08-03 10:17:00.000000', 'Usdfs', 10, 'Yes', 'NO', 'Hello thetr'),
-(0, 123232323, 'Nick', 'caridology', '2022-09-30 16:59:00.000000', 'No treatment desc', 1, 'yes', 'No', 'No addtional notes'),
-(0, 1212, 'Harry jameson', 'Cardiology', '2022-09-02 17:47:00.000000', '2 injections', 1, 'Yes', 'YEs', 'What is happening here Additional Observation notes'),
-(0, 1233232, 'Nick', 'Cardiology', '2022-09-11 17:48:00.000000', '2 injections', 5, 'Yes', 'Yes', 'No addtional notes'),
-(0, 112433, 'Nick', 'Cardiology', '2022-09-08 10:12:00.000000', 'Treated', 5, 'Yes', 'No', 'Additional notes'),
-(0, 3434343, 'Nsamr', 'Clinical Study', '2022-09-07 10:24:00.000000', 'dfdfdf', 5, 'YES', 'NO', 'dfddfddf'),
-(0, 12121, 'Nick', 'Cardiology ', '2022-08-30 10:51:00.000000', 'None', 4, 'YEs', 'No', 'Observation notes'),
-(0, 2432, 'Nick', 'Cardiology', '2022-09-09 10:55:00.000000', 'Description', 6, 'Yes', 'No', 'Observation'),
-(0, 435343, 'Nick', 'Cardiology', '2022-09-02 11:00:00.000000', 'No treatment', 6, 'Yes', 'Yes', 'No observation notes');
+(2, 5555555, 'Nick Thanh', 'caridology', '2022-08-18 11:00:00.000000', 'Treat', 1, 'Yes', 'Yes', 'All is good'),
+(3, 1212121, 'Nick whoopsie', 'caridology', '2022-08-11 14:42:00.000000', 'Hello there', 6, 'Yes', 'yes', 'Hey'),
+(4, 1212121, 'Nick whoopsie', 'caridology', '2022-08-11 14:42:00.000000', 'Hello there', 6, 'Yes', 'yes', 'Hey'),
+(5, 2147483647, '111111111', 'Hello', '2022-08-05 14:50:00.000000', 'hjfjdfidjfk', 1, 'Yes', 'Yes', 'Hello there\r\n'),
+(6, 111232, 'Nick', 'Heartrate', '2022-08-03 10:17:00.000000', 'Usdfs', 10, 'Yes', 'NO', 'Hello thetr'),
+(7, 123232323, 'Nick', 'caridology', '2022-09-30 16:59:00.000000', 'No treatment desc', 1, 'yes', 'No', 'No addtional notes');
 
 -- --------------------------------------------------------
 
@@ -111,9 +103,9 @@ CREATE TABLE `patientrecords` (
 --
 
 INSERT INTO `patientrecords` (`patientID`, `familyName`, `givenName`, `dob`, `address`, `sex`, `weight`, `height`, `medicalHistory`, `allergies`, `clinicalStudyID`, `clinicalStudyName`) VALUES
-(234236, 'Scolari', 'Nicholas', '2022-09-08', '123 5 Street', ' ', ' 58kg', ' 200cm', ' No Medical History', '  No Allergies', '1', 'Cardiology'),
-(234237, 'Scolari', 'Nicholas', '2022-09-02', '54 Happy Street Balmain', ' ', ' 48kg', ' 200cm', ' Medical History Extensive', '  No Allergies', '343', 'Cardiology'),
-(234238, 'Scolari', 'Nicholas', '2022-09-02', '48 BEATTIE ST Balmain', 'on', '55kg', '150cm', 'No MEd history', 'No allergy list', '2342', 'Cardiology ');
+(234240, 'Scolari', 'Nicholas', '2022-09-01', '232323 Fly Street', 'male', '55kg', '150cm', 'Medical History Altered', 'Allergies altered', '3434345', 'Clinical Study Name11'),
+(234241, 'Scolari  ', 'Nicholas  ', '2022-09-01', '48 BEATTIE ST Balmain  ', 'male  ', '55kg  ', '150cm', 'Medical History', 'Allergies', 'Unassigned', 'Unassigned'),
+(234242, 'Davidson', 'Nicholas', '2022-09-23', '48 BEATTIE ST Balmain', 'male', '55kg', '150cm', 'Medical History', 'Allergies', 'Unassigned', 'Unassigned');
 
 -- --------------------------------------------------------
 
@@ -122,25 +114,25 @@ INSERT INTO `patientrecords` (`patientID`, `familyName`, `givenName`, `dob`, `ad
 --
 
 CREATE TABLE `trialorg` (
-  `trialorgid` int(255) NOT NULL,
-  `trialorgname` varchar(255) NOT NULL,
-  `trialorgdesc` varchar(255) NOT NULL,
-  `cexpertise` varchar(255) NOT NULL
+  `trialOrgID` int(255) NOT NULL,
+  `trialOrgName` varchar(255) NOT NULL,
+  `trialOrgDesc` varchar(255) NOT NULL,
+  `cExpertise` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `trialorg`
 --
 
-INSERT INTO `trialorg` (`trialorgid`, `trialorgname`, `trialorgdesc`, `cexpertise`) VALUES
-(111555, 'hsdf', 'YES', 'Cardiology'),
-(0, '', '', ''),
-(0, '', '', ''),
-(111111, '', '', ''),
-(1234232, 'hello', 'Yes', 'What is up'),
-(23232, 'This is the trial Orgf', 'Nothing', 'Description'),
+INSERT INTO `trialorg` (`trialOrgID`, `trialOrgName`, `trialOrgDesc`, `cExpertise`) VALUES
 (32323, 'Nick trial org', 'No description', 'No Expertise\r\n'),
-(123112, 'Nick', 'No desc', 'no expertise');
+(111555, 'hsdf', 'YES', 'Cardiology'),
+(123112, 'Nick', 'No desc', 'no expertise'),
+(1234232, 'hello', 'Yes', 'What is up'),
+(1234233, 'Nick', 'Description', 'Expertise'),
+(1234234, 'Nick', 'Description', 'Expertise!'),
+(1234235, 'Trial Organisation', 'Description', 'Expertise'),
+(1234236, 'Nick', 'No Description', 'No Expertise');
 
 --
 -- Indexes for dumped tables
@@ -154,10 +146,22 @@ ALTER TABLE `clinicalstudies`
   ADD UNIQUE KEY `studyExpertise` (`studyExpertise`);
 
 --
+-- Indexes for table `patientobservationandtreatment`
+--
+ALTER TABLE `patientobservationandtreatment`
+  ADD PRIMARY KEY (`observationandTreatmentID`);
+
+--
 -- Indexes for table `patientrecords`
 --
 ALTER TABLE `patientrecords`
   ADD PRIMARY KEY (`patientID`);
+
+--
+-- Indexes for table `trialorg`
+--
+ALTER TABLE `trialorg`
+  ADD PRIMARY KEY (`trialOrgID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -167,13 +171,25 @@ ALTER TABLE `patientrecords`
 -- AUTO_INCREMENT for table `clinicalstudies`
 --
 ALTER TABLE `clinicalstudies`
-  MODIFY `studyID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `studyID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `patientobservationandtreatment`
+--
+ALTER TABLE `patientobservationandtreatment`
+  MODIFY `observationandTreatmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `patientrecords`
 --
 ALTER TABLE `patientrecords`
-  MODIFY `patientID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234239;
+  MODIFY `patientID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234243;
+
+--
+-- AUTO_INCREMENT for table `trialorg`
+--
+ALTER TABLE `trialorg`
+  MODIFY `trialOrgID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1234237;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
