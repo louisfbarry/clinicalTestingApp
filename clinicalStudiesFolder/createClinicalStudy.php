@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     do {
         if (
-             empty($studyExpertise) || empty($studyPhase)
+            empty($studyExpertise) || empty($studyPhase)
             || empty($eligibility) || empty($clinicalStudyDescription) || empty($onStudy) || empty($patientsEnrolledNumber)
         ) {
             $errorMessage = "All the fields are required";
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Inserting values inputted into our database table!
 
         $sql = "INSERT INTO clinicalstudies (studyExpertise, studyPhase, eligibility, clinicalStudyDescription, onStudy, patientsEnrolledNumber) " .
-        "VALUES ('$studyExpertise','$studyPhase','$eligibility','$clinicalStudyDescription',
+            "VALUES ('$studyExpertise','$studyPhase','$eligibility','$clinicalStudyDescription',
         '$onStudy', '$patientsEnrolledNumber')";
         //Now excuting the sql query
         $result = $connection->query($sql);
@@ -122,23 +122,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             ?>
             <br>
+            <li>
+                <input type="hidden" name="observationandTreatmentID" value="<?php echo $observationandTreatmentID; ?>">
+            </li>
             <div class="inputBlackBorder">
                 <form method="post">
                     <li>
                         <label for="studyExpertise">Clinical Trial Title / Expertise:</label>
-                        <input type="text" id="studyExpertise" name="studyExpertise" value="<?php echo $studyExpertise; ?> " placeholder="Enter the Title of the Clinical Study here with the Expertise." />
+                        <input type="text" id="studyExpertise" name="studyExpertise" placeholder="Enter the Title of the Clinical Study here with the Expertise." />
                     </li>
                     <li>
                         <label for="studyPhase">Clinical Study Phase:</label>
-                        <input type="text" id="studyPhase" name="studyPhase" value="<?php echo $studyPhase; ?> " placeholder="Enter the phase of the Clinical Study here (1-5)" />
+                        <input type="text" id="studyPhase" name="studyPhase" placeholder="Enter the phase of the Clinical Study here (1-5)" />
                     </li>
                     <li>
                         <label for="eligibility">Clinical Study Eligibility:</label>
-                        <textarea id="eligibility" name=eligibility value="<?php echo $eligibility; ?> " placeholder="E.g Patients must be 18 years old or greater"></textarea>
+                        <textarea id="eligibility" name=eligibility placeholder="E.g Patients must be 18 years old or greater"></textarea>
                     </li>
                     <li>
                         <label for="clinicalStudyDescription">Clinical Study Description:</label>
-                        <textarea id="clinicalStudyDescription" name=clinicalStudyDescription value="<?php echo $clinicalStudyDescription; ?> " placeholder="Enter the start time of the Clinical Trial here and any extra details worth noting."></textarea>
+                        <textarea id="clinicalStudyDescription" name=clinicalStudyDescription placeholder="Enter the start time of the Clinical Trial here and any extra details worth noting."></textarea>
                     </li>
 
             </div>
@@ -147,12 +150,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="inputBlackBorder">
                 <li>
                     <label> Patients on-study? (Yes/No)</label>
-                    <input type="text" id="onStudy" name="onStudy" placeholder="Enter Yes or No here" value="<?php echo $onStudy; ?> " />
+                    <input type="text" id="onStudy" name="onStudy" placeholder="Enter Yes or No here" />
                 </li>
 
                 <li>
                     <label> Number of Patients enrolled? </label>
-                    <input type="text" id="patientsEnrolledNumber" name="patientsEnrolledNumber" value="<?php echo $patientsEnrolledNumber; ?> " placeholder="Enter the number of patients enrolled" />
+                    <input type="text" id="patientsEnrolledNumber" name="patientsEnrolledNumber" placeholder="Enter the number of patients enrolled" />
                 </li>
             </div>
             <br>

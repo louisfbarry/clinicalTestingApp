@@ -190,7 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             ?>
             <li>
                 <div class="buttonHolder">
-                    <button type="submit" class="btn btn-outline-success">Edit Clinical Study!</button>
+                    <button type="submit" class="btn btn-outline-success">Edit Clinical Study</button>
                     <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php" role="button">Cancel</a>
                 </div>
             </li>
