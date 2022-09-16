@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Clinical Studies List</title>
     <link rel="stylesheet" href="../style.css">
+    <script src= "table2excel"></script>
 </head>
 
 <body>
@@ -26,10 +27,10 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2> List of Clinical Studies </h2>
+        <h2>List of Clinical Studies <button type='button' class='btn btn-success'>Export list to excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/clinicalStudiesFolder/createClinicalStudy.php" role="button">New Clinical Study </a>
         <br>
-        <table class="table">
+        <table class="table" id = "example-table">
             <thead>
                 <tr>
                     <th>Clinical Study ID</th>
@@ -53,7 +54,7 @@
 
                 // Check if the connection is successful
                 if ($connection->connect_error) {
-                    die("Connection failed: " . $connection->connect_error );
+                    die("Connection failed: " . $connection->connect_error);
                 }
 
                 //SQL to read all the rows on the clinicalstudies table
@@ -62,13 +63,13 @@
                 $result = $connection->query($sql);
 
                 //To check if the query has been excuted or not
-                if(!$result) {
-                    die("Invalid query: " . $connection->connect_error ); 
+                if (!$result) {
+                    die("Invalid query: " . $connection->connect_error);
                     //die means exit the excution of the query. If any errors occur, the program will exit.
                 }
 
                 //while loop to read each row of the table
-                while($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) {
                     echo "
                     <tr>
                     <td>$row[studyID]</td>
@@ -96,7 +97,7 @@
         <h2> List of Patient Records </h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/patientRecordsFolder/createPatientRecord.php" role="button">New Patient Record</a>
         <br>
-        <table class="table">
+        <table class="table" id>
             <thead>
                 <tr>
                     <th>Patient ID</th>
@@ -126,7 +127,7 @@
 
                 // Check if the connection is successful
                 if ($connection->connect_error) {
-                    die("Connection failed: " . $connection->connect_error );
+                    die("Connection failed: " . $connection->connect_error);
                 }
 
                 //SQL to read all the rows on the clinicalstudies table
@@ -135,13 +136,13 @@
                 $result = $connection->query($sql);
 
                 //To check if the query has been excuted or not
-                if(!$result) {
-                    die("Invalid query: " . $connection->connect_error ); 
+                if (!$result) {
+                    die("Invalid query: " . $connection->connect_error);
                     //die means exit the excution of the query. If any errors occur, the program will exit.
                 }
 
                 //while loop to read each row of the table
-                while($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) {
                     echo "
                     <tr>
                     <td>$row[patientID]</td>
@@ -169,6 +170,12 @@
                 ?>
             </tbody>
         </table>
+        <script>
+            document.getElementById('downloadexcel').addEventListener('click', function() {
+                var table2excel = new Table2Excel();
+                table2excel.export(document.querySelectorAll("#example-table"));
+            });
+        </script>
     </div>
 </body>
 
