@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Trial Organisations List</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="/clinicalTestingWebsite/table2excel.js"></script>
 </head>
 
 <body>
@@ -26,10 +27,10 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2> Trial Organisations List </h2>
+        <h2> Trial Organisations List <button type='button' id = "downloadexcel" class='btn btn-success'>Export list to Excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/trialOrganisationsFolder/createTrialOrganisation.php" role="button">New Trial Organisation </a>
         <br>
-        <table class="table">
+        <table class="table" id = "example-table">
             <thead>
                 <tr>
                     <th>Trial Organisation ID</th>
@@ -85,6 +86,12 @@
                 ?>
             </tbody>
         </table>
+        <script>
+            document.getElementById('downloadexcel').addEventListener('click', function() {
+                var table2excel = new Table2Excel();
+                table2excel.export(document.querySelectorAll("#example-table"));
+            });
+        </script>
     </div>
 </body>
 

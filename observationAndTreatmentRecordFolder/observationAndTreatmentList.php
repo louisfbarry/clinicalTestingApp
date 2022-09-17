@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Observation and Treatment List</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="/clinicalTestingWebsite/table2excel.js"></script>
 </head>
 
 <body>
@@ -26,10 +27,10 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2> List of Observation and Treatment Records </h2>
+        <h2>List of Observation and Treatment Records <button type='button' id = "downloadexcel" class='btn btn-success'>Export list to Excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/createObservationandTreatment.php" role="button">New Observation/Treatment Record </a>
         <br>
-        <table class="table">
+        <table class="table" id = "example-table">
             <thead>
                 <tr>
                     <th>Observation-and-Treatment ID</th>
@@ -98,6 +99,12 @@
                 ?>
             </tbody>
         </table>
+        <script>
+            document.getElementById('downloadexcel').addEventListener('click', function() {
+                var table2excel = new Table2Excel();
+                table2excel.export(document.querySelectorAll("#example-table"));
+            });
+        </script>
     </div>
 </body>
 
