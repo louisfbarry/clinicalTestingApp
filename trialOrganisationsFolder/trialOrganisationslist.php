@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2> Trial Organisations List <button type='button' id = "downloadexcel" class='btn btn-success'>Export list to Excel</button></h2>
+        <h2> Trial Organisation List <button type='button' id = "downloadexcel" class='btn btn-success'>Export list to Excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/trialOrganisationsFolder/createTrialOrganisation.php" role="button">New Trial Organisation </a>
         <br>
         <table class="table" id = "example-table">
