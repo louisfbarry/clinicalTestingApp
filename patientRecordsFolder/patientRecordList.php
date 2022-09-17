@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2> List of Patient Records <button type='button' id = "downloadexcel" class='btn btn-success'>Export list to Excel</button></h2>
+        <h2> List of Patient Records <button type='button' id = "downloadexcel" class='btn btn-success' >Export list to Excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/patientRecordsFolder/createPatientRecord.php" role="button">New Patient Record</a>
         <br>
         <table class="table" id = "example-table">

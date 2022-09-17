@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="style.css">
+    <script src="/clinicalTestingWebsite/table2excel.js"></script>
 </head>
 
 <body>
@@ -58,6 +59,13 @@
            
         </div>
     </div>
+    <button type='button' id = "downloadexcel" class='btn btn-success'>Export All lists to Excel</button>
+    <script>
+        document.getElementById('downloadexcel').addEventListener('click', function() {
+            var table2excel = new Table2Excel();
+            table2excel.export(document.querySelectorAll("#example-table"));
+        });
+    </script>
 </body>
 
 </html>
