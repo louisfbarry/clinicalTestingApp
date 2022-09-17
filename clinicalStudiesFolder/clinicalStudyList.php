@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Clinical Studies List</title>
     <link rel="stylesheet" href="../style.css">
-    <script src= "table2excel"></script>
+    <script src="table2excel"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2>List of Clinical Studies <button type='button' class='btn btn-success'>Export list to excel</button></h2>
+        <h2>List of Clinical Studies <button type='button' id = "downloadexcel" class='btn btn-success'>Export list to excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/clinicalStudiesFolder/createClinicalStudy.php" role="button">New Clinical Study </a>
         <br>
         <table class="table" id = "example-table">
