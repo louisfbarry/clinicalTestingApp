@@ -37,12 +37,12 @@
                     <th>Family Name</th>
                     <th>Given Name</th>
                     <th>Date of Birth</th>
-                    <th>address</th>
+                    <th>Address</th>
                     <th>Gender</th>
                     <th>Weight</th>
                     <th>Height</th>
                     <th>Medical History</th>
-                    <th>allergies</th>
+                    <th>Allergies</th>
                     <th>Clinical Study ID</th>
                     <th>Clinical Study Name</th>
 

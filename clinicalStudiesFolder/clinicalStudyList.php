@@ -39,7 +39,7 @@
                     <th>Eligibility</th>
                     <th>Clinical Study description</th>
                     <th>Are Patients On Study?</th>
-                    <th>Number of patients enrolled</th>
+                    <th>Number of Patients Enrolled</th>
                 </tr>
             </thead>
             <tbody>
@@ -104,12 +104,12 @@
                     <th>Family Name</th>
                     <th>Given Name</th>
                     <th>Date of Birth</th>
-                    <th>address</th>
+                    <th>Address</th>
                     <th>Gender</th>
                     <th>Weight</th>
                     <th>Height</th>
                     <th>Medical History</th>
-                    <th>allergies</th>
+                    <th>Allergies</th>
                     <th>Clinical Study ID</th>
                     <th>Clinical Study Name</th>
 

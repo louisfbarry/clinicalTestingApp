@@ -36,8 +36,8 @@
                     <th>Observation-and-Treatment ID</th>
                     <th>Patient ID</th>
                     <th>Patient Name</th>
-                    <th>Clincal Study Name</th>
-                    <th>Observation Date and Time</th>
+                    <th>Clinical Study Name</th>
+                    <th>Observation Date-and-Time</th>
                     <th>Treatment Description</th>
                     <th>Pain Score</th>
                     <th>Temperature High?</th>

@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 <head>
     <meta charset="utf-8" />
-    <title>Edit a Clinical Study Form</title>
+    <title>Edit Clinical Study Form</title>
     <link rel="stylesheet" href="../style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 Study List</a>
             <a href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial
                 Organisation List</a>
-            <a href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentList.php">Obervation
+            <a href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentList.php">Observation
                 / Treatment List</a>
         </div>
     </div>
