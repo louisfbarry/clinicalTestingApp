@@ -94,7 +94,7 @@
         </table>
     </div>
     <div class="container my-5">
-        <h2> List of Patient Records <button type='button' id = "downloadexcel1" class='btn btn-success'>Export list to excel</button></h2>
+        <h2> List of Patient Records <button type='button' id = "downloadexcel1" class='btn btn-success'>Export list to Excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/patientRecordsFolder/createPatientRecord.php" role="button">New Patient Record</a>
         <br>
         <table class="table" id = "example-table1">
@@ -176,7 +176,9 @@
                 table2excel.export(document.querySelectorAll("#example-table"));
             });
         </script>
+        
         <script>
+            //This is the script to export the 2nd table on this page (The Patient List) as an csv (The same script for both tables on 1 page does not work)
             document.getElementById('downloadexcel1').addEventListener('click', function() {
                 var table2excel = new Table2Excel();
                 table2excel.export(document.querySelectorAll("#example-table1"));
