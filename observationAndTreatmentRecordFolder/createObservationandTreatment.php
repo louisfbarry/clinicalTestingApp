@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$additionalObservationNotes = $_POST["additionalObservationNotes"];
 
 	do {
-		if (empty($patientID) || empty($patientName)
+		if (
+			empty($patientID) || empty($patientName)
 			|| empty($clinicalStudyName) || empty($observationDateandTime)
 			|| empty($treatmentDescription)
 			|| empty($painScore) || empty($tempQuestion) || empty($heartRateQuestion) || empty($additionalObservationNotes)
@@ -198,6 +199,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					</div>
 				</li>
 			</ul>
+			<button onclick="myFunction()">Automatically Mark Answers</button>
+
+			<p id="demo"></p>
+
+			<script>
+				function myFunction() {
+					var txt;
+					if (confirm("Answer's have been automatically marked")) {
+						if ($painScore >= 5) {
+							txt = "Pain Score is above 5. Monitor patient for 30min"
+						}
+					}
+					document.getElementById("demo").innerHTML = txt;
+				}
+			</script>
 		</form>
 </body>
 
