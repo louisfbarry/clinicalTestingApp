@@ -182,6 +182,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					<textarea id="additionalObservationNotes" name="additionalObservationNotes" placeholder="Enter any addtional notes about the Observation (Especially if the above Observation table is not applicable)"></textarea>
 				</li>
 				<li>
+					<script>
+						function myFunction() {
+							var painScore = parseInt(document.getElementById('painScore').value);
+							if (painScore >= 5) 
+							{
+								alert("Pain score is at 5 or above! Monitor Patient for 30min");
+							}
+						}
+					</script>
 					<?php
 					if (!empty($successMessage)) {
 						//We use the javascript sourced from the Bootstrap website (See header) here. It allows us to remove the alerts once they have been read.
@@ -192,28 +201,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 ";
 					}
+
 					?>
 					<div class="buttonHolder">
-						<button type="submit" class="btn btn-outline-success">Record Observation/Treatment</button>
+						<button type="submit" onclick="myFunction()" class="btn btn-outline-success">Record Observation/Treatment</button>
 						<a class="btn btn-outline-danger" href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/ObservationAndTreatmentlist.php" role="button">Cancel</a>
 					</div>
 				</li>
 			</ul>
-			<button onclick="myFunction()">Automatically Mark Answers</button>
-
-			<p id="demo"></p>
-
-			<script>
-				function myFunction() {
-					var txt;
-					if (confirm("Answer's have been automatically marked")) {
-						if ($painScore >= 5) {
-							txt = "Pain Score is above 5. Monitor patient for 30min"
-						}
-					}
-					document.getElementById("demo").innerHTML = txt;
-				}
-			</script>
 		</form>
 </body>
 
