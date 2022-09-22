@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							</td>
 						</tr>
 						<tr>
-							<td><br>Has the Patients Temperature increased or decreased by +2 Degrees Celcius? <br><br>(If the answer is 'YES' apply a cool treatment to the paitient and perfrom another check after 30min)</td>
+							<td><br>Has the Patients Temperature increased or decreased by +2 Degrees Celcius? <br><br>(If the answer is 'YES' apply a cool treatment to the patient)</td>
 							<td>
 								<label>Yes/No</label>
 								<input type="text" id="tempQuestion" name="tempQuestion" placeholder="Enter Yes/No"></input>
@@ -182,15 +182,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					<textarea id="additionalObservationNotes" name="additionalObservationNotes" placeholder="Enter any addtional notes about the Observation (Especially if the above Observation table is not applicable)"></textarea>
 				</li>
 				<li>
-					<script>
-						function myFunction() {
-							var painScore = parseInt(document.getElementById('painScore').value);
-							if (painScore >= 5) 
-							{
-								alert("Pain score is at 5 or above! Monitor Patient for 30min");
-							}
-						}
-					</script>
 					<?php
 					if (!empty($successMessage)) {
 						//We use the javascript sourced from the Bootstrap website (See header) here. It allows us to remove the alerts once they have been read.
@@ -204,12 +195,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 					?>
 					<div class="buttonHolder">
-						<button type="submit" onclick="myFunction()" class="btn btn-outline-success">Record Observation/Treatment</button>
+						<button type="button" onclick="myFunction()" class="btn btn-outline-dark">Automatically Mark Answers</button>
+						<br>
+						<br>
+						<button type="submit" class="btn btn-outline-success">Record Observation/Treatment</button>
 						<a class="btn btn-outline-danger" href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/ObservationAndTreatmentlist.php" role="button">Cancel</a>
 					</div>
 				</li>
 			</ul>
 		</form>
+		<script>
+			//This is the function to automatically mark the Observation / Treatment form answers.
+			function myFunction() {
+				//Here we are retrieveing the value of the inputs by their ID (E.g heartRateQuestion input)
+				var painScore = parseInt(document.getElementById('painScore').value);
+				var tempQuestion = document.getElementById('tempQuestion').value;
+				var heartRateQuestion = document.getElementById('heartRateQuestion').value;
+				//Here we are comparing the inputs and displaying outputs based on their values / automatically marking them
+				if (painScore >= 5 && tempQuestion == "Yes" && heartRateQuestion == "Yes") {
+					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature has increased by 2+ degree's celcius! Apply a cool treatment to the patient.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min.");
+				} else if (painScore < 5 && tempQuestion == "No" && heartRateQuestion == "No") {
+					alert("Answer's have been automatically marked!\n1.Pain score is low\n2.Temperature is stable.\n3.Heart Rate is stable.");
+				} else if (painScore >= 5 && tempQuestion == "No" && heartRateQuestion == "No") {
+					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature is stable.\n3.Heart Rate is stable.");
+				} else if (painScore >= 5 && tempQuestion == "No" && heartRateQuestion == "Yes") {
+					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature is stable.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min.");
+				} else if (painScore >= 5 && tempQuestion == "Yes" && heartRateQuestion == "No") {
+					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature has increased by 2+ degree's celcius! Apply a cool treatment to the patient\n3.Heart Rate is stable.");
+				} else if (painScore < 5 && tempQuestion == "Yes" && heartRateQuestion == "Yes") {
+					alert("Answer's have been automatically marked!\n1. Pain Score is low.\n2.Temperature has increased by 2+ degrees celcius! Apply a cool treatment to the patient.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min.");
+				} else if (painScore < 5 && tempQuestion == "No" && heartRateQuestion == "Yes") {
+					alert("Answer's have been automatically marked!\n1.Pain score is low.\n2.Temperature is stable.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min");
+				} else if (painScore < 5 && tempQuestion == "Yes" && heartRateQuestion == "No") {
+					alert("Answer's have been automatically marked!\n1.Pain score is low.\n2.Temperature has increased by 2+ degree's celcius! Apply a cool treatment to the patient.\n3.Heart Rate is stable.");
+				}
+			}
+		</script>
 </body>
 
 </html>

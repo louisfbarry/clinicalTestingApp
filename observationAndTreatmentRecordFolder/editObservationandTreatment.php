@@ -27,82 +27,81 @@ $errorMessage = "";
 $successMessage = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    //GET Method: To show the data of the Observation andTreatment
+	//GET Method: To show the data of the Observation andTreatment
 
-    // IF statement to see if the ID exists in the database. If it does not, the user is redirected back to the list page
-    if (!isset($_GET["observationandTreatmentID"])) {
-        header("location: /clinicalTestingWebsite/clinicalStudiesFolder/observationAndTreatmentList.php");
-        exit;
-    }
+	// IF statement to see if the ID exists in the database. If it does not, the user is redirected back to the list page
+	if (!isset($_GET["observationandTreatmentID"])) {
+		header("location: /clinicalTestingWebsite/clinicalStudiesFolder/observationAndTreatmentList.php");
+		exit;
+	}
 
-    //If the ID does exist in the database, 
-    $observationandTreatmentID = $_GET["observationandTreatmentID"];
+	//If the ID does exist in the database, 
+	$observationandTreatmentID = $_GET["observationandTreatmentID"];
 
-    //Read the row of the selected client from the database table
-    $sql = "SELECT * FROM patientobservationandtreatment WHERE observationandTreatmentID=$observationandTreatmentID";
-    $result = $connection->query($sql);
-    $row = $result->fetch_assoc(); //This reads the data of the study from the database
+	//Read the row of the selected client from the database table
+	$sql = "SELECT * FROM patientobservationandtreatment WHERE observationandTreatmentID=$observationandTreatmentID";
+	$result = $connection->query($sql);
+	$row = $result->fetch_assoc(); //This reads the data of the study from the database
 
-    if (!$row) {
-        header("location: /clinicalTestingWebsite/clinicalStudiesFolder/observationAndTreatmentList.php");
-        exit;
-    }
+	if (!$row) {
+		header("location: /clinicalTestingWebsite/clinicalStudiesFolder/observationAndTreatmentList.php");
+		exit;
+	}
 
-    $observationandTreatmentID = $row["observationandTreatmentID"];
-    $patientID = $row["patientID"];
-    $patientName = $row["patientName"];
-    $clinicalStudyName = $row["clinicalStudyName"];
-    $observationDateandTime = $row["observationDateandTime"];
-    $treatmentDescription = $row["treatmentDescription"];
-    $painScore = $row["painScore"];
-    $tempQuestion = $row["tempQuestion"];
-    $heartRateQuestion = $row["heartRateQuestion"];
-    $additionalObservationNotes = $row["additionalObservationNotes"];
+	$observationandTreatmentID = $row["observationandTreatmentID"];
+	$patientID = $row["patientID"];
+	$patientName = $row["patientName"];
+	$clinicalStudyName = $row["clinicalStudyName"];
+	$observationDateandTime = $row["observationDateandTime"];
+	$treatmentDescription = $row["treatmentDescription"];
+	$painScore = $row["painScore"];
+	$tempQuestion = $row["tempQuestion"];
+	$heartRateQuestion = $row["heartRateQuestion"];
+	$additionalObservationNotes = $row["additionalObservationNotes"];
 } else {
-    // POST method: to update the data of the Clinical Trial after it has been edited
-    $observationandTreatmentID = $_POST["observationandTreatmentID"];
+	// POST method: to update the data of the Clinical Trial after it has been edited
+	$observationandTreatmentID = $_POST["observationandTreatmentID"];
 	$patientID = $_POST["patientID"];
-    $patientName = $_POST["patientName"];
-    $clinicalStudyName = $_POST["clinicalStudyName"];
-    $observationDateandTime = $_POST["observationDateandTime"];
-    $treatmentDescription = $_POST["treatmentDescription"];
-    $painScore = $_POST["painScore"];
-    $tempQuestion = $_POST["tempQuestion"];
-    $heartRateQuestion = $_POST["heartRateQuestion"];
-    $additionalObservationNotes = $_POST["additionalObservationNotes"];
+	$patientName = $_POST["patientName"];
+	$clinicalStudyName = $_POST["clinicalStudyName"];
+	$observationDateandTime = $_POST["observationDateandTime"];
+	$treatmentDescription = $_POST["treatmentDescription"];
+	$painScore = $_POST["painScore"];
+	$tempQuestion = $_POST["tempQuestion"];
+	$heartRateQuestion = $_POST["heartRateQuestion"];
+	$additionalObservationNotes = $_POST["additionalObservationNotes"];
 
-    do {
-        if (
+	do {
+		if (
 			empty($observationandTreatmentID) || empty($patientID) || empty($patientName)
-            || empty($clinicalStudyName) || empty($observationDateandTime) 
-            || empty($treatmentDescription) 
-            || empty($painScore) || empty($tempQuestion) || empty($heartRateQuestion) || empty($additionalObservationNotes)
-        ) {
-            $errorMessage = "All the fields are required";
-            break;
-        } //Error message that displays if any are the inputs are submitted empty
+			|| empty($clinicalStudyName) || empty($observationDateandTime)
+			|| empty($treatmentDescription)
+			|| empty($painScore) || empty($tempQuestion) || empty($heartRateQuestion) || empty($additionalObservationNotes)
+		) {
+			$errorMessage = "All the fields are required";
+			break;
+		} //Error message that displays if any are the inputs are submitted empty
 
-         //Query to update the database
-         //Query to update the database
-        $sql = "UPDATE patientobservationandtreatment SET patientID = '$patientID', patientName = '$patientName', clinicalStudyName = '$clinicalStudyName', 
+		//Query to update the database
+		//Query to update the database
+		$sql = "UPDATE patientobservationandtreatment SET patientID = '$patientID', patientName = '$patientName', clinicalStudyName = '$clinicalStudyName', 
 		observationDateandTime = '$observationDateandTime', treatmentDescription = '$treatmentDescription', painScore = '$painScore', tempQuestion = '$tempQuestion',
 		heartRateQuestion = '$heartRateQuestion', additionalObservationNotes = '$additionalObservationNotes' WHERE observationandTreatmentID = $observationandTreatmentID";
 
 
-         $result = $connection->query($sql);
- 
-          //If we have any error during the SQL query, this error message is displayed
-          if (!$result) {
-             $errorMessage = "Invalid query: " . $connection->error;
-             break;
-         }
- 
-         $successMessage = "Observation/Treatment Record updated successfully";
- 
-         header("location: /clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentlist.php");
-         exit;
- 
-     } while (false);
+		$result = $connection->query($sql);
+
+		//If we have any error during the SQL query, this error message is displayed
+		if (!$result) {
+			$errorMessage = "Invalid query: " . $connection->error;
+			break;
+		}
+
+		$successMessage = "Observation/Treatment Record updated successfully";
+
+		header("location: /clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentlist.php");
+		exit;
+	} while (false);
 }
 ?>
 <!DOCTYPE html>
@@ -152,8 +151,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 				?>
 				<br>
 				<li>
-                        <input type="hidden" name = "observationandTreatmentID" value="<?php echo $observationandTreatmentID; ?>">
-                    </li>
+					<input type="hidden" name="observationandTreatmentID" value="<?php echo $observationandTreatmentID; ?>">
+				</li>
 				<li>
 					<label for="patientID">Patient ID:</label>
 					<input type="number" id="patientID" name="patientID" value="<?php echo $patientID; ?>" placeholder="Enter patientID (Number)" />
@@ -168,7 +167,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 				</li>
 				<li>
 					<label for="observationDateandTime">Observation Date and Time:</label>
-					<input type="datetime-local" name="observationDateandTime" value="<?php echo date('Y-m-d\TH:i', strtotime($observationDateandTime) ); //String to time?>"/>
+					<input type="datetime-local" name="observationDateandTime" value="<?php echo date('Y-m-d\TH:i', strtotime($observationDateandTime)); //String to time
+																						?>" />
 				</li>
 				<li>
 					<label for="treatmentDescription">Treatment Description:</label>
@@ -218,12 +218,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 					}
 					?>
 					<div class="buttonHolder">
+						<button type="button" onclick="myFunction()">Automatically Mark Answers</button>
+						<br>
+						<br>
 						<button type="submit" class="btn btn-outline-success">Record Observation/Treatment</button>
 						<a class="btn btn-outline-danger" href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentlist.php" role="button">Cancel</a>
 					</div>
 				</li>
 			</ul>
 		</form>
+		<script>
+			//This is the function to automatically mark the Observation / Treatment form answers.
+			function myFunction() {
+				//Here we are retrieveing the value of the inputs by their ID (E.g heartRateQuestion input)
+				var painScore = parseInt(document.getElementById('painScore').value);
+				var tempQuestion = document.getElementById('tempQuestion').value;
+				var heartRateQuestion = document.getElementById('heartRateQuestion').value;
+				//Here we are comparing the inputs and displaying outputs based on their values / automatically marking them
+				if (painScore >= 5 && tempQuestion == "Yes" && heartRateQuestion == "Yes") {
+					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature has increased by 2+ degree's celcius! Apply a cool treatment to the patient.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min.");
+				} else if (painScore < 5 && tempQuestion == "No" && heartRateQuestion == "No") {
+					alert("Answer's have been automatically marked!\n1.Pain score is low\n2.Temperature is stable.\n3.Heart Rate is stable.");
+				} else if (painScore >= 5 && tempQuestion == "No" && heartRateQuestion == "No") {
+					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature is stable.\n3.Heart Rate is stable.");
+				} else if (painScore >= 5 && tempQuestion == "No" && heartRateQuestion == "Yes") {
+					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature is stable.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min.");
+				} else if (painScore >= 5 && tempQuestion == "Yes" && heartRateQuestion == "No") {
+					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature has increased by 2+ degree's celcius! Apply a cool treatment to the patient\n3.Heart Rate is stable.");
+				} else if (painScore < 5 && tempQuestion == "Yes" && heartRateQuestion == "Yes") {
+					alert("Answer's have been automatically marked!\n1. Pain Score is low.\n2.Temperature has increased by 2+ degrees celcius! Apply a cool treatment to the patient.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min.");
+				} else if (painScore < 5 && tempQuestion == "No" && heartRateQuestion == "Yes") {
+					alert("Answer's have been automatically marked!\n1.Pain score is low.\n2.Temperature is stable.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min");
+				} else if (painScore < 5 && tempQuestion == "Yes" && heartRateQuestion == "No") {
+					alert("Answer's have been automatically marked!\n1.Pain score is low.\n2.Temperature has increased by 2+ degree's celcius! Apply a cool treatment to the patient.\n3.Heart Rate is stable.");
+				}
+			}
+		</script>
 </body>
 
 </html>
