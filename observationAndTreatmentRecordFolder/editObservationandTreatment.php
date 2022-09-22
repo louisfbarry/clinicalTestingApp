@@ -235,21 +235,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 				var tempQuestion = document.getElementById('tempQuestion').value;
 				var heartRateQuestion = document.getElementById('heartRateQuestion').value;
 				//Here we are comparing the inputs and displaying outputs based on their values / automatically marking them
-				if (painScore >= 5 && tempQuestion == "Yes" && heartRateQuestion == "Yes") {
+				if (painScore >= 5 && tempQuestion.toLowerCase() == "yes" && heartRateQuestion.toLowerCase() == "yes") {
 					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature has increased by 2+ degree's celcius! Apply a cool treatment to the patient.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min.");
-				} else if (painScore < 5 && tempQuestion == "No" && heartRateQuestion == "No") {
+				} else if (painScore < 5 && tempQuestion.toLowerCase() == "no" && heartRateQuestion.toLowerCase() == "no") {
 					alert("Answer's have been automatically marked!\n1.Pain score is low\n2.Temperature is stable.\n3.Heart Rate is stable.");
-				} else if (painScore >= 5 && tempQuestion == "No" && heartRateQuestion == "No") {
+				} else if (painScore >= 5 && tempQuestion.toLowerCase() == "no" && heartRateQuestion.toLowerCase() == "no") {
 					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature is stable.\n3.Heart Rate is stable.");
-				} else if (painScore >= 5 && tempQuestion == "No" && heartRateQuestion == "Yes") {
+				} else if (painScore >= 5 && tempQuestion.toLowerCase() == "no" && heartRateQuestion.toLowerCase() == "yes") {
 					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature is stable.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min.");
-				} else if (painScore >= 5 && tempQuestion == "Yes" && heartRateQuestion == "No") {
+				} else if (painScore >= 5 && tempQuestion.toLowerCase() == "yes" && heartRateQuestion.toLowerCase() == "no") {
 					alert("Answer's have been automatically marked!\n1.Pain score is at 5 or above! Monitor Patient for 30min.\n2.Temperature has increased by 2+ degree's celcius! Apply a cool treatment to the patient\n3.Heart Rate is stable.");
-				} else if (painScore < 5 && tempQuestion == "Yes" && heartRateQuestion == "Yes") {
+				} else if (painScore < 5 && tempQuestion.toLowerCase() == "yes" && heartRateQuestion.toLowerCase() == "yes") {
 					alert("Answer's have been automatically marked!\n1. Pain Score is low.\n2.Temperature has increased by 2+ degrees celcius! Apply a cool treatment to the patient.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min.");
-				} else if (painScore < 5 && tempQuestion == "No" && heartRateQuestion == "Yes") {
+				} else if (painScore < 5 && tempQuestion.toLowerCase() == "no" && heartRateQuestion.toLowerCase() == "yes") {
 					alert("Answer's have been automatically marked!\n1.Pain score is low.\n2.Temperature is stable.\n3.Heart Rate has increased / is abnormal! Calm the patient down and check in after 30min");
-				} else if (painScore < 5 && tempQuestion == "Yes" && heartRateQuestion == "No") {
+				} else if (painScore < 5 && tempQuestion.toLowerCase() == "yes" && heartRateQuestion.toLowerCase() == "no") {
 					alert("Answer's have been automatically marked!\n1.Pain score is low.\n2.Temperature has increased by 2+ degree's celcius! Apply a cool treatment to the patient.\n3.Heart Rate is stable.");
 				}
 			}
