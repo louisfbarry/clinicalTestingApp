@@ -218,11 +218,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 					}
 					?>
 					<div class="buttonHolder">
-						<button type="button" onclick="myFunction()">Automatically Mark Answers</button>
+						<button type="button" onclick="myFunction()" class="btn btn-outline-dark">Automatically Mark Answers</button>
 						<br>
 						<br>
 						<button type="submit" class="btn btn-outline-success">Record Observation/Treatment</button>
-						<a class="btn btn-outline-danger" href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentlist.php" role="button">Cancel</a>
+						<a class="btn btn-outline-danger" href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/ObservationAndTreatmentlist.php" role="button">Cancel</a>
 					</div>
 				</li>
 			</ul>

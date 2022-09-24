@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							</td>
 						</tr>
 						<tr>
-							<td><br>Has the Patients Temperature increased or decreased by +2 Degrees Celcius? <br><br>(If the answer is 'YES' apply a cool treatment to the patient)</td>
+							<td><br>Has the Patients Temperature increased or decreased by 2+ Degrees Celcius? <br><br>(If the answer is 'YES' apply a cool treatment to the patient)</td>
 							<td>
 								<label>Yes/No</label>
 								<input type="text" id="tempQuestion" name="tempQuestion" placeholder="Enter Yes/No"></input>
