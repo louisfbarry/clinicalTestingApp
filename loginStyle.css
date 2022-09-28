@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&family=PT+Sans+Caption&display=swap');
+/* Adding the css link from bootstrap website */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css');
+/* Adding the css link from bootstrap website */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js');
+/* Adding the javascript link from the bootstrap website */
+
+
+
+html, body {
+    height: 90%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    background-color: white;
+    box-sizing: border-box;
+    font-family: 'PT Sans Caption', sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.imgStyle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form {
+    /* Just to center the form on the page */
+    margin: 0 auto;
+    width: 500px;
+    /* To see the outline of the form */
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    background-color: white;
+    vertical-align: bottom;
+}

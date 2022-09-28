@@ -5,115 +5,31 @@
     <meta charset="utf-8" />
 
     <title>Nurse Authentication Page</title>
-    <style>
-         /* Style the header */
-         .header {
-            background-color: #f1f1f1;
-            padding: 20px;
-            text-align: center;
-        }
-
-        div {
-            margin-bottom: 10px;
-        }
-
-        body {
-            background-color: #3515e9;
-        }
-
-        form {
-            /* Just to center the form on the page */
-            margin: 0 auto;
-            width: 300px;
-            /* To see the outline of the form */
-            padding: 1em;
-            border: 1px solid #ccc;
-            border-radius: 1em;
-            background-color: #ccc;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        form li+li {
-            margin-top: 1em;
-        }
-
-        label {
-            /* To make sure that all labels have the same size and are properly aligned */
-            display: inline-block;
-            width: 90px;
-            text-align: right;
-        }
-
-        input,
-        textarea {
-            /* To make sure that all text fields have the same font settings By default, textareas have a monospace font */
-            font: 1em sans-serif;
-            /* To give the same size to all text fields */
-            width: 300px;
-            box-sizing: border-box;
-            /* To harmonize the look & feel of text field border */
-            border: 1px solid #999;
-        }
-
-        input:focus,
-        textarea:focus {
-            /* To give a little highlight on active elements */
-            border-color: #000;
-        }
-
-        textarea {
-            /* To properly align multiline text fields with their labels */
-            vertical-align: top;
-            /* To give enough room to type some text */
-            height: 5em;
-        }
-
-        .button {
-            /* To position the buttons to the same position of the text fields */
-            padding-left: 90px;
-            /* same size as the label elements */
-        }
-
-        button {
-            /* This extra margin represent roughly the same space as the space between the labels and their text fields */
-            margin-left: 0.5em;
-        }
-
-        .imgStyle {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="loginStyle.css">
 </head>
 
 <body>
-    <div class="header">
-        <h1>Nurse Authentication Login Page</h1>
-    </div>
-    <br>
-    <br>
-    <div class="imgStyle">
-        <img alt="Login Page Image" src="Images\Hospital Logo.jpg" width="200" height="200">
-    </div>
     <form action="Homepage.html" method="POST">
+        <div class="imgStyle">
+            <img alt="Login Page Image" src="Images\Hospital Logo.jpg" width="200" height="200">
+        </div>
+        <br><br>
+        <h3>Welcome to St George Hospital</h3><br>
         <!-- the action of the form is sending the user to the homepage (Once they click submit) -->
-        <div>
+        <div class="login">
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username"><br>
-        </div>
-        <label for="pwd">Password:</label><br>
-        <!-- Input type is "password" to hide the input form potentential hackers (causes input to be black dots) -->
-        <input type="password" id="pwd" name="pwd"><br><br>
-        <!-- As login is local, no information is actually sent to the server. -->
-        <input type="submit" value="login">
-        <!-- To link pages successfully, (E.g the Login page and the homepage) The file type must be html -->
-        <!-- input type must also be submit-->
 
-        <!-- Can reformat inputs later -->
+            <label for="pwd">Password:</label><br>
+            <!-- Input type is "password" to hide the input form potentential hackers (causes input to be black dots) -->
+            <input type="password" id="pwd" name="pwd"><br><br>
+            <!-- As login is local, no information is actually sent to the server. -->
+            <input type="submit" value="Login">
+            <!-- To link pages successfully, (E.g the Login page and the homepage) The file type must be html -->
+            <!-- input type must also be submit-->
+
+            <!-- Can reformat inputs later -->
+        </div>
 </body>
 </form>
 
