@@ -183,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<li>
 				<label for="sex">Gender:</label>
 				<label for="male">
-					<input type="radio" name="sex" id="male" value = "male" checked /><span>Male</span>
+					<input type="radio" name="sex" id="male" value = "Male" checked /><span>Male</span>
 				</label>
 				<label for="female">
 					<input type="radio" name="sex" id="female" value = "Female" checked /><span>Female</span>
