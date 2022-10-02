@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2022 at 08:04 AM
+-- Generation Time: Oct 03, 2022 at 01:55 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,9 +42,8 @@ CREATE TABLE `clinicalstudies` (
 --
 
 INSERT INTO `clinicalstudies` (`studyID`, `studyExpertise`, `studyPhase`, `eligibility`, `clinicalStudyDescription`, `onStudy`, `patientsEnrolledNumber`) VALUES
-(4, ' 1111  ', 1, 'YES', 'What', ' YES  ', '5 '),
-(13, ' Cardiology', 5, 'paitents must be 18 years Old or above', 'Description', ' Yes', ' 5'),
-(15, ' Cardiology4', 4, 'Paitients must be 18+', 'Description', ' Yes', ' 4');
+(13, ' Cardiology   ', 4, 'Patients must be 18 years old or above\r\nPatients must attend for 2 weeks mininum', 'Start date 26/9/22', ' Yes      ', '6'),
+(15, ' Cardiology - How it affects the elderly', 4, 'Patients must be 18+ Paitents must not have any current sickness (E.g covid, cold/flu etc.', 'Start date: 25/9/22. Early Stages of major clinical study', ' Yes    ', ' 4    ');
 
 -- --------------------------------------------------------
 
@@ -70,12 +69,9 @@ CREATE TABLE `patientobservationandtreatment` (
 --
 
 INSERT INTO `patientobservationandtreatment` (`observationandTreatmentID`, `patientID`, `patientName`, `clinicalStudyName`, `observationDateandTime`, `treatmentDescription`, `painScore`, `tempQuestion`, `heartRateQuestion`, `additionalObservationNotes`) VALUES
-(2, 5555555, 'Nick Thanh', 'caridology', '2022-08-18 11:00:00.000000', 'Treat', 1, 'Yes', 'Yes', 'All is good'),
-(3, 1212121, 'Nick whoopsie', 'caridology', '2022-08-11 14:42:00.000000', 'Hello there', 6, 'Yes', 'yes', 'Hey'),
-(4, 1212121, 'Nick whoopsie', 'caridology', '2022-08-11 14:42:00.000000', 'Hello there', 6, 'Yes', 'yes', 'Hey'),
-(5, 2147483647, '111111111', 'Hello', '2022-08-05 14:50:00.000000', 'hjfjdfidjfk', 1, 'Yes', 'Yes', 'Hello there\r\n'),
-(6, 111232, 'Nick', 'Heartrate', '2022-08-03 10:17:00.000000', 'Usdfs', 10, 'Yes', 'NO', 'Hello thetr'),
-(7, 123232323, 'Nick', 'caridology', '2022-09-30 16:59:00.000000', 'No treatment desc', 1, 'yes', 'No', 'No addtional notes');
+(2, 54, 'Nick Robertson', 'Cardiology', '2022-08-18 11:00:00.000000', 'No Treatment Description', 1, 'Yes', 'Yes', 'No additional notes'),
+(6, 111232, 'Angus Davies', 'Heartrate', '2022-08-03 10:17:00.000000', 'Treatment date: 5/9/22', 10, 'Yes', 'NO', 'No additional notes'),
+(7, 123232323, 'Tom Wildey', 'caridology', '2022-09-30 16:59:00.000000', 'No Treatment provided. Just observation of high body temperature, sweating etc.', 1, 'yes', 'No', 'No additional notes');
 
 -- --------------------------------------------------------
 
@@ -103,9 +99,11 @@ CREATE TABLE `patientrecords` (
 --
 
 INSERT INTO `patientrecords` (`patientID`, `familyName`, `givenName`, `dob`, `address`, `sex`, `weight`, `height`, `medicalHistory`, `allergies`, `clinicalStudyID`, `clinicalStudyName`) VALUES
-(234240, 'Scolari', 'Nicholas', '2022-09-01', '232323 Fly Street', 'male', '55kg', '150cm', 'Medical History Altered', 'Allergies altered', '3434345', 'Clinical Study Name11'),
-(234241, 'Scolari  ', 'Nicholas  ', '2022-09-01', '48 BEATTIE ST Balmain  ', 'male  ', '55kg  ', '150cm', 'Medical History', 'Allergies', 'Unassigned', 'Unassigned'),
-(234242, 'Davidson', 'Nicholas', '2022-09-23', '48 BEATTIE ST Balmain', 'male', '55kg', '150cm', 'Medical History', 'Allergies', 'Unassigned', 'Unassigned');
+(234240, 'James        ', 'Nicholas                      ', '2022-09-01', '23 Fly Street                  ', 'male                      ', '55kg                      ', '150cm', '    Has had influenza', '    Allergic to cats and fur    ', '13', 'Cardiology'),
+(234241, 'Davidson  ', 'Luke  ', '2022-09-01', '123 Happy Street   ', 'male      ', '55kg      ', '150cm', 'Has recently broke multiple bones in their body', 'Allergic to tomatoes', 'Unassigned', 'Unassigned'),
+(234242, 'Davidson    ', 'Nicholas    ', '2022-09-23', '45 Main Road   ', 'male    ', '55kg    ', '150cm', 'No broken bones or diseases. May have mental health issues though', 'No allergies', 'Unassigned', 'Unassigned'),
+(234243, 'Anthony     ', 'Tupou     ', '2022-10-04', 'Level 1 Happy Street NSW     ', 'male     ', '43kg     ', '159cm', ' Is on Anitbiotics due to depression', ' Allergic to Peanut butter ', '13', 'Cardiology: How it affects the elderly'),
+(234244, 'Scolari       ', 'Nicholas       ', '2022-10-06', '48 BEATTIE ST Balmain       ', 'Female       ', '55kg       ', '150cm', '     No Medical history', '    No allergies    ', '13', 'Cardiology');
 
 -- --------------------------------------------------------
 
@@ -125,14 +123,9 @@ CREATE TABLE `trialorg` (
 --
 
 INSERT INTO `trialorg` (`trialOrgID`, `trialOrgName`, `trialOrgDesc`, `cExpertise`) VALUES
-(32323, 'Nick trial org', 'No description', 'No Expertise\r\n'),
-(111555, 'hsdf', 'YES', 'Cardiology'),
-(123112, 'Nick', 'No desc', 'no expertise'),
-(1234232, 'hello', 'Yes', 'What is up'),
-(1234233, 'Nick', 'Description', 'Expertise'),
-(1234234, 'Nick', 'Description', 'Expertise!'),
-(1234235, 'Trial Organisation', 'Description', 'Expertise'),
-(1234236, 'Nick', 'No Description', 'No Expertise');
+(32323, 'Cardiology Extended Org', 'No description', 'No Expertise\r\n'),
+(123112, ' Cancer Organisation', 'No desc', 'No expertise'),
+(1234233, 'The Robertson Organisation', 'Description', 'Expertise');
 
 --
 -- Indexes for dumped tables
@@ -183,7 +176,7 @@ ALTER TABLE `patientobservationandtreatment`
 -- AUTO_INCREMENT for table `patientrecords`
 --
 ALTER TABLE `patientrecords`
-  MODIFY `patientID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234243;
+  MODIFY `patientID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234245;
 
 --
 -- AUTO_INCREMENT for table `trialorg`
