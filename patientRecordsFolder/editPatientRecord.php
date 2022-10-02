@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $patientID = $_GET["patientID"];
 
     //Read the row of the selected client from the database table
-    $sql = "SELECT * FROM patientRecords WHERE patientID = $patientID";
+    $sql = "SELECT * FROM patientrecords WHERE patientID = $patientID";
     $result = $connection->query($sql);
     $row = $result->fetch_assoc(); //This reads the data of the study from the database
 
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         } //Error message that displays if any are the inputs are submitted empty
 
         //Query to update the database
-        $sql = "UPDATE patientRecords SET familyName = '$familyName', givenName = '$givenName', dob = '$dob', address = '$address', sex = '$sex', weight = '$weight' WHERE patientID = $patientID";
+        $sql = "UPDATE patientrecords SET familyName = '$familyName', givenName = '$givenName', dob = '$dob', address = '$address', sex = '$sex', weight = '$weight' WHERE patientID = $patientID";
 
 
         $result = $connection->query($sql);

@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             break;
         }
 
-        $successMessage = "Client updated correctly";
+        $successMessage = "Clinical Study updated correctly";
 
         header("location: /clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php");
         exit;
