@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         } //Error message that displays if any are the inputs are submitted empty
 
         //Query to update the database
-        $sql = "UPDATE patientrecords SET familyName = '$familyName', givenName = '$givenName', dob = '$dob', address = '$address', sex = '$sex', weight = '$weight' WHERE patientID = $patientID";
+        $sql = "UPDATE patientrecords SET familyName = '$familyName', givenName = '$givenName', dob = '$dob', address = '$address', sex = '$sex', weight = '$weight', height = '$height', medicalHistory = '$medicalHistory', allergies = '$allergies', clinicalStudyID = '$clinicalStudyID', clinicalStudyName = '$clinicalStudyName' WHERE patientID = $patientID";
 
 
         $result = $connection->query($sql);
@@ -191,7 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </li>
             <li>
                 <label for="DOB">Date of birth:</label>
-                <input type="date" name="dob" value="<?php echo $dob; ?>">
+                <input type="date" name="dob" id = "dob" value="<?php echo $dob; ?>">
             </li>
             <li>
                 <label for="address">Address:</label>
