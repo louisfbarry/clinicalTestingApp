@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
             <li>
                 <label for="trialOrgName">Trial Organisation Name:</label>
-                <input type="text" id="trialOrgName" name="trialOrgName" />
+                <input type="text" id="trialOrgName" name="trialOrgName" placeholder="Enter name of Trial Organisation here" />
             </li>
             <li>
 
