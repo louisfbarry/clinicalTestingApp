@@ -10,14 +10,14 @@
 
 <body>
     <div class="header">
-        <a href="../Homepage.html">
+        <a href="../Homepage.php">
             <img src="../Images/Hospital Logo.jpg" alt="St George Logo"></a>
         <h1>Clinical Studies List</h1>
     </div>
     <br>
     <div class="topnav">
         <div id="topnav">
-            <a href="../Homepage.html">Homepage</a>
+            <a href="../Homepage.php">Homepage</a>
             <a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Patient Record List</a>
             <a href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php">Clinical Study List</a>
             <a href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial

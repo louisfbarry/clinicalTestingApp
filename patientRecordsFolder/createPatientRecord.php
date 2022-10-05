@@ -127,14 +127,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
 	<div class="header">
-		<a href="../Homepage.html">
+		<a href="../Homepage.php">
 			<img src="../Images/Hospital Logo.jpg" alt="St George Logo"></a>
 		<h1><a href="Homepage.html">Create A Patient Medical Record</a></h1>
 	</div>
 	<br>
 	<div class="topnav">
 		<div id="topnav">
-			<a href="../Homepage.html">Homepage</a>
+			<a href="../Homepage.php">Homepage</a>
 			<a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Patient Record List</a>
 			<a href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php">Clinical Study List</a>
 			<a
