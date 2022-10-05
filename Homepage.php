@@ -8,6 +8,12 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="/clinicalTestingWebsite/table2excel.js"></script>
+    <style>
+        table {
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
 </head>
 
 <body>
@@ -65,7 +71,7 @@
     <div class="textOnForm">
         <button type='button' id="downloadexcel" class='btn btn-success'>Export All lists to Excel</button>
     </div>
-    <table hidden class="table" id="example-table">
+    <table class="table" id="example-table">
         <thead>
             <tr>
                 <th>Trial Organisation ID</th>
