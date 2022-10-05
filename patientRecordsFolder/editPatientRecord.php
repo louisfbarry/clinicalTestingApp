@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <img src="../Images/Hospital Logo.jpg" alt="St George Logo"></a>
         <h1><a href="Homepage.html">Edit Patient Medical Record</a></h1>
     </div>
-    <br>
+    <br><br>
     <div class="topnav">
         <div id="topnav">
             <a href="../Homepage.html">Homepage</a>

@@ -14,7 +14,7 @@
             <img src="../Images/Hospital Logo.jpg" alt="St George Logo"></a>
         <h1>Patient Record List</h1>
     </div>
-    <br>
+    <br><br>
     <div class="topnav">
         <div id="topnav">
             <a href="../Homepage.html">Homepage</a>

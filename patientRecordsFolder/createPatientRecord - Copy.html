@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="../style.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 	<title>Patient Medical Record</title>
 	<style>
 		li {
@@ -137,11 +137,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<a href="../Homepage.html">Homepage</a>
 			<a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Patient Record List</a>
 			<a href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php">Clinical Study List</a>
-			<a
-				href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial
+			<a href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial
 				Organisation List</a>
-			<a
-				href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentList.php">Observation
+			<a href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentList.php">Observation
 				/ Treatment List</a>
 		</div>
 	</div>
@@ -149,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<br><br>
 
 	<form method="post">
-    <?php
+		<?php
             //Message that displays if the form is submitted empty
             if (!empty($errorMessage)) {
                 echo "
@@ -170,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
 			<li>
 				<label for="givenName">Given Names:</label>
-				<input type="text" id="givenName" name="givenName" placeholder = "Enter given names" />
+				<input type="text" id="givenName" name="givenName" placeholder="Enter given names" />
 			</li>
 			<li>
 				<label for="DOB">Date of birth:</label>
@@ -199,7 +197,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
 			<li>
 				<label for="medicalHistory">Medical History:</label>
-				<textarea id="medicalHistory" name="medicalHistory" placeholder="Enter patient medical history"></textarea>
+				<textarea id="medicalHistory" name="medicalHistory"
+					placeholder="Enter patient medical history"></textarea>
 			</li>
 			<li>
 				<label for="allergies">Allergies:</label>
@@ -207,14 +206,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
 			<li>
 				<label for="clinicalStudyID">Clinical Study ID:</label>
-				<input type="text" id="clinicalStudyID" name="clinicalStudyID" value = "Unassigned" />
+				<input type="text" id="clinicalStudyID" name="clinicalStudyID" value="Unassigned" />
 			</li>
 			<li>
 				<label for="clinicalStudyName">Clinical Study Name:</label>
-				<input type="text" id="clinicalStudyName" name="clinicalStudyName" value = "Unassigned"/>
+				<input type="text" id="clinicalStudyName" name="clinicalStudyName" value="Unassigned" />
 			</li>
-            <br>
-            <?php
+			<br>
+			<?php
             if (!empty($successMessage)) {
                 //We use the javascript sourced from the Bootstrap website (See header) here. It allows us to remove the alerts once they have been read.
                 echo "
@@ -225,10 +224,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ";
             }
             ?>
-            <li>
-                <div class="buttonHolder">
-                    <button type="submit" class="btn btn-outline-success">Create Patient Record</button>
-                    <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php" role="button">Cancel</a>
+			<li>
+				<div class="buttonHolder">
+					<button type="submit" class="btn btn-outline-success">Create Patient Record</button>
+					<a class="btn btn-outline-danger"
+						href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php"
+						role="button">Cancel</a>
 			<li>
 			</li>
 		</ul>
