@@ -10,14 +10,14 @@
 
 <body>
     <div class="header">
-        <a href="../Homepage.html">
+        <a href="../Homepage.php">
             <img src="../Images/Hospital Logo.jpg" alt="St George Logo"></a>
         <h1>Observation and Treatment List</h1>
     </div>
     <br><br>
     <div class="topnav">
         <div id="topnav">
-            <a href="../Homepage.html">Homepage</a>
+            <a href="../Homepage.php">Homepage</a>
             <a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Patient Record List</a>
             <a href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php">Clinical Study List</a>
             <a href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial
@@ -62,7 +62,7 @@
                 }
 
                 //SQL to read all the rows on the clinicalstudies table
-                $sql = "SELECT * FROM patientObservationAndTreatment";
+                $sql = "SELECT * FROM patientobservationandtreatment";
                 //The query will be executed and stored in the $result variable
                 $result = $connection->query($sql);
 
