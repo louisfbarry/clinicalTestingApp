@@ -191,20 +191,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </li>
             <li>
                 <label for="DOB">Date of birth:</label>
-                <input type="date" name="dob" id = "dob" value="<?php echo $dob; ?>">
+                <input type="date" name="dob" id="dob" value="<?php echo $dob; ?>">
             </li>
             <li>
                 <label for="address">Address:</label>
                 <input type="text" id="address" name="address" value="<?php echo $address; ?> " placeholder="Enter address">
             </li>
             <li>
-                <label for="sex">Gender:</label>
-                <label for="male">
-                    <input type="radio" name="sex" id="male" value="<?php echo $sex; ?> " checked /><span>Male</span>
-                </label>
-                <label for="female">
-                    <input type="radio" name="sex" id="female" value="<?php echo $sex; ?> " checked /><span>Female</span>
-                </label>
+            <div class="radio">
+					<label for="sex">Gender:</label>
+                    <?php
+                    if ($sex = "Male")
+                    {
+                        echo "<input id= 'male' type= 'radio' name= 'sex' value= 'Male' checked >";
+                        echo "<label for='male'><span>Male</span></label>";
+                        echo "<input id='female' type='radio' name='sex' value='Female'>";
+                        echo "<label for='female'><span>Female</span></label>";
+                    }
+                    else
+                    {
+                        echo "<input id= 'male' type= 'radio' name= 'sex' value= 'Male' >";
+                        echo "<label for='male'><span>Male</span></label>";
+                        echo "<input id='female' type='radio' name='sex' value='Female'> checked";
+                        echo "<label for='female'><span>Female</span></label>";
+                    }
+                    ?>
+				</div>
             </li>
             <li>
                 <label for="weight">Weight:</label>
