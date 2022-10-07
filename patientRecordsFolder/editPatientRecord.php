@@ -201,7 +201,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <div class="radio">
 					<label for="sex">Gender:</label>
                     <?php
-                    if ($sex = "Male")
+                    if ($sex == "Male")
                     {
                         echo "<input id= 'male' type= 'radio' name= 'sex' value= 'Male' checked >";
                         echo "<label for='male'><span>Male</span></label>";
@@ -212,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     {
                         echo "<input id= 'male' type= 'radio' name= 'sex' value= 'Male' >";
                         echo "<label for='male'><span>Male</span></label>";
-                        echo "<input id='female' type='radio' name='sex' value='Female'> checked";
+                        echo "<input id='female' type='radio' name='sex' value='Female' checked >";
                         echo "<label for='female'><span>Female</span></label>";
                     }
                     ?>
