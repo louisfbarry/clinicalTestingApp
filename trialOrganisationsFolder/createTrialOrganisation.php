@@ -119,11 +119,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             </li>
             <li>
-                <label for="trialOrgDesc">Trial Organisation Description</label>
+                <label for="trialOrgDesc">Trial Organisation Description:</label>
                 <textarea id="trialOrgDesc" name="trialOrgDesc" placeholder="Enter any extra details about the Trial Organisation here"></textarea>
             </li>
             <li>
-                <label for="cExpertise">Clinical Trial Expertise: :</label>
+                <label for="cExpertise">Clinical Trial Expertise:</label>
                 <textarea id="cExpertise" name="cExpertise" placeholder="Enter the Expertise of the Clinical Trials here E.g Caridology"></textarea>
             </li>
             <br>

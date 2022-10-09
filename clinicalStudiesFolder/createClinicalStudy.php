@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="text" id="studyPhase" name="studyPhase" placeholder="Enter the phase of the Clinical Study here (1-5)" />
                     </li>
                     <li>
-                        <label for="eligibility">Clinical Study Eligibility:</label>
+                        <label for="eligibility">Clinical Study Eligibility: </label>
                         <textarea id="eligibility" name=eligibility placeholder="E.g Patients must be 18 years old or greater"></textarea>
                     </li>
                     <li>

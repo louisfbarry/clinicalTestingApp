@@ -228,11 +228,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </li>
             <li>
                 <label for="medicalHistory">Medical History:</label>
-                <textarea id="medicalHistory" name="medicalHistory" placeholder="Enter patient medical history"> <?php echo $medicalHistory; ?></textarea>
+                <textarea id="medicalHistory"name="medicalHistory"placeholder="Enter patient medical history"><?php echo$medicalHistory;?></textarea>
             </li>
             <li>
                 <label for="allergies">Allergies:</label>
-                <textarea id="allergies" name="allergies" placeholder="Enter a list of allergies"> <?php echo $allergies; ?> </textarea>
+                <textarea id="allergies"name="allergies"placeholder="Enter a list of allergies"><?php echo$allergies;?></textarea>
             </li>
             <li>
                 <label for="clinicalStudyID">Clinical Study ID:</label>

@@ -133,13 +133,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <input type="hidden" name="trialOrgID" value = <?php echo $trialOrgID;?> />
             <li>
                 <label for="trialOrgName">Trial Organisation Name:</label>
-                <input type="text" id="trialOrgName" name="trialOrgName" value = <?php echo $trialOrgName;?> />
+                <input type="text" id="trialOrgName" name="trialOrgName" value="<?php echo $trialOrgName; ?> " placeholder="Enter Trial Organisation name here " />
             </li>
             <li>
 
             </li>
             <li>
-                <label for="trialOrgDesc">Trial Organisation Description</label>
+                <label for="trialOrgDesc">Trial Organisation Description:</label>
                 <textarea id="trialOrgDesc" name="trialOrgDesc" placeholder="Enter any extra details about the Trial Organisation here"><?php echo $trialOrgDesc;?></textarea>
             </li>
             <li>
