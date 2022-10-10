@@ -4,7 +4,7 @@
 $servername = "localhost"; // Our server is called localhost as the server is installed on this PC
 $username = "root"; // Our username is called root as that is the default username
 $password = ""; // Our Password is empty as default
-$database = "clinicaltesting2"; // The database is known as clinicaltesting
+$database = "clinicaltesting2"; // The database is known as clinicaltesting2
 
 // Create a connection to the database
 $connection = new mysqli($servername, $username, $password, $database);
@@ -36,7 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ) {
             $errorMessage = "All the fields are required";
             break;
-        } //Error message that displays if any are the inputs are submitted empty
+        }
+        $sql("SELECT studyExpertise FROM clinicalstudies");
+        if ($result->num_rows <= 0) {
+            $errorMessage = "A Clinical Study with that Title / Expertise already exists. Please try again with a New Clinical Study Title";
+            break;
+        } //Error message that displays if a clinical study already exists with that title
 
         // to add a new client to the database\
 
@@ -59,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $studyPhase = "";
         $eligibility = "";
         $clinicalStudyDescription = "";
-        $onStudy = "Yes";
+        $onStudy = "";
         $patientsEnrolledNumber = "";
 
         $successMessage = "Clinical Study added successfully";
