@@ -1,4 +1,11 @@
+<?php
+// define variables and set to empty values
+$password = "";
+$username = "";
+//Error message that displays if any are the inputs are submitted empty
+?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
