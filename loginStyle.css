@@ -7,22 +7,33 @@
 
 
 
-html, body {
+html,
+body {
     height: 90%;
+    background: url(images/hospital.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 html {
     display: table;
     margin: auto;
+    
 }
 
 body {
-    background-color: white;
     box-sizing: border-box;
     font-family: 'PT Sans Caption', sans-serif;
     text-align: center;
     vertical-align: middle;
     display: table-cell;
+    /* background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    background-color: white;
+    background-image: url("Images/hospital.png"); */
 }
 
 .imgStyle {
@@ -32,12 +43,10 @@ body {
 }
 
 form {
-    /* Just to center the form on the page */
     margin: 0 auto;
     width: 500px;
-    /* To see the outline of the form */
     padding: 1em;
-    border: 1px solid #ccc;
+    border: 3px solid black;
     border-radius: 1em;
     background-color: white;
     vertical-align: bottom;
