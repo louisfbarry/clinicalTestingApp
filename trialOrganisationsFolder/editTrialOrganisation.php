@@ -51,7 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     do {
         if (
-             empty($trialOrgID) || empty($trialOrgName) || empty($trialOrgDesc) || empty($cExpertise)) {
+            empty($trialOrgID) || empty($trialOrgName) || empty($trialOrgDesc) || empty($cExpertise)
+        ) {
             $errorMessage = "All the fields are required";
             break;
         } //Error message that displays if any are the inputs are submitted empty\
@@ -63,8 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         $result = $connection->query($sql);
 
-         //If we have any error during the SQL query, this error message is displayed
-         if (!$result) {
+        //If we have any error during the SQL query, this error message is displayed
+        if (!$result) {
             $errorMessage = "Invalid query: " . $connection->error;
             break;
         }
@@ -73,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         header("location: /clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php");
         exit;
-
     } while (false);
 }
 ?>
@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 ";
             }
             ?>
-            <input type="hidden" name="trialOrgID" value = <?php echo $trialOrgID;?> />
+            <input type="hidden" name="trialOrgID" value=<?php echo $trialOrgID; ?> />
             <li>
                 <label for="trialOrgName">Trial Organisation Name:</label>
                 <input type="text" id="trialOrgName" name="trialOrgName" value="<?php echo $trialOrgName; ?> " placeholder="Enter Trial Organisation name here " />
@@ -139,11 +139,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </li>
             <li>
                 <label for="trialOrgDesc">Trial Organisation Description:</label>
-                <textarea id="trialOrgDesc" name="trialOrgDesc" placeholder="Enter any extra details about the Trial Organisation here"><?php echo $trialOrgDesc;?></textarea>
+                <textarea id="trialOrgDesc" name="trialOrgDesc" placeholder="Enter any extra details about the Trial Organisation here"><?php echo $trialOrgDesc; ?></textarea>
             </li>
             <li>
                 <label for="cExpertise">Clinical Trial Expertise:</label>
-                <textarea id="cExpertise" name="cExpertise" placeholder="Enter the Expertise of the Clinical Trials here E.g Caridology"><?php echo $cExpertise;?></textarea>
+                <textarea id="cExpertise" name="cExpertise" placeholder="Enter the Expertise of the Clinical Trials here E.g Caridology"><?php echo $cExpertise; ?></textarea>
             </li>
             <br>
             <?php

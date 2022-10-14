@@ -19,4 +19,3 @@ if ( isset($_GET["observationandTreatmentID"]) )
 //Send the user back to the list page
 header("location: /clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationandTreatmentList.php");
 exit;
-?>

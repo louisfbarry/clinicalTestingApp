@@ -27,10 +27,10 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2> Trial Organisation List <button type='button' id = "downloadexcel" class='btn btn-success'>Export list to Excel</button></h2>
+        <h2> Trial Organisation List <button type='button' id="downloadexcel" class='btn btn-success'>Export list to Excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/trialOrganisationsFolder/createTrialOrganisation.php" role="button">New Trial Organisation </a>
         <br>
-        <table class="table" id = "example-table">
+        <table class="table" id="example-table">
             <thead>
                 <tr>
                     <th>Trial Organisation ID</th>
@@ -41,17 +41,17 @@
             </thead>
             <tbody>
                 <?php
-$servername = "group2clinicaltesting.info"; // Our server is called localhost as the server is installed on this PC
-$username = "group2DBuser1"; // Our username is called root as that is the default username
-$password = "group2Rocks12345"; // Our Password is empty as default
-$database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
+                $servername = "group2clinicaltesting.info"; // Our server is called localhost as the server is installed on this PC
+                $username = "group2DBuser1"; // Our username is called root as that is the default username
+                $password = "group2Rocks12345"; // Our Password is empty as default
+                $database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
 
                 // Create a connection to the database
                 $connection = new mysqli($servername, $username, $password, $database);
 
                 // Check if the connection is successful
                 if ($connection->connect_error) {
-                    die("Connection failed: " . $connection->connect_error );
+                    die("Connection failed: " . $connection->connect_error);
                 }
 
                 //SQL to read all the rows on the clinicalstudies table
@@ -60,13 +60,13 @@ $database = "group2clinicaltesting"; // The database is known as group2clinicalt
                 $result = $connection->query($sql);
 
                 //To check if the query has been excuted or not
-                if(!$result) {
-                    die("Invalid query: " . $connection->connect_error ); 
+                if (!$result) {
+                    die("Invalid query: " . $connection->connect_error);
                     //die means exit the excution of the query. If any errors occur, the program will exit.
                 }
 
                 //while loop to read each row of the table
-                while($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) {
                     echo "
                     <tr>
                     <td>$row[trialOrgID]</td>

@@ -1,9 +1,9 @@
 <?php //Had to change the file type to php. This is so we can add php code!
 
 $servername = "group2clinicaltesting.info"; // Our server is called localhost as the server is installed on this PC
-                $username = "group2DBuser1"; // Our username is called root as that is the default username
-                $password = "group2Rocks12345"; // Our Password is empty as default
-                $database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
+$username = "group2DBuser1"; // Our username is called root as that is the default username
+$password = "group2Rocks12345"; // Our Password is empty as default
+$database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
 
 // Create a connection to the database
 $connection = new mysqli($servername, $username, $password, $database);
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     do {
         if (
-             empty($studyExpertise) || empty($studyPhase)
+            empty($studyExpertise) || empty($studyPhase)
             || empty($eligibility) || empty($clinicalStudyDescription) || empty($onStudy) || empty($patientsEnrolledNumber)
         ) {
             $errorMessage = "All the fields are required";
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Inserting values inputted into our database table!
 
         $sql = "INSERT INTO clinicalstudies (studyExpertise, studyPhase, eligibility, clinicalStudyDescription, onStudy, patientsEnrolledNumber) " .
-        "VALUES ('$studyExpertise','$studyPhase','$eligibility','$clinicalStudyDescription',
+            "VALUES ('$studyExpertise','$studyPhase','$eligibility','$clinicalStudyDescription',
         '$onStudy', '$patientsEnrolledNumber')";
         //Now excuting the sql query
         $result = $connection->query($sql);

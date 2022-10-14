@@ -19,4 +19,3 @@ if ( isset($_GET["trialOrgID"]) )
 //Send the user back to the list page
 header("location: /clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php");
 exit;
-?>

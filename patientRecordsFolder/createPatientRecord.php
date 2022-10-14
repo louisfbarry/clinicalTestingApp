@@ -2,9 +2,9 @@
 
 //To connect the form to the database
 $servername = "group2clinicaltesting.info"; // Our server is called localhost as the server is installed on this PC
-                $username = "group2DBuser1"; // Our username is called root as that is the default username
-                $password = "group2Rocks12345"; // Our Password is empty as default
-                $database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
+$username = "group2DBuser1"; // Our username is called root as that is the default username
+$password = "group2Rocks12345"; // Our Password is empty as default
+$database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
 
 // Create a connection to the database
 $connection = new mysqli($servername, $username, $password, $database);
@@ -27,63 +27,62 @@ $errorMessage = "";
 $successMessage = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $familyName = $_POST["familyName"];
-    $givenName = $_POST["givenName"];
-    $dob = $_POST["dob"];
-    $address = $_POST["address"];
-    $sex = $_POST["sex"];
-    $weight = $_POST["weight"];
-    $height = $_POST["height"];
-    $medicalHistory= $_POST["medicalHistory"];
-    $allergies = $_POST["allergies"];
-    $clinicalStudyID = $_POST["clinicalStudyID"];
-    $clinicalStudyName = $_POST["clinicalStudyName"];
+	$familyName = $_POST["familyName"];
+	$givenName = $_POST["givenName"];
+	$dob = $_POST["dob"];
+	$address = $_POST["address"];
+	$sex = $_POST["sex"];
+	$weight = $_POST["weight"];
+	$height = $_POST["height"];
+	$medicalHistory = $_POST["medicalHistory"];
+	$allergies = $_POST["allergies"];
+	$clinicalStudyID = $_POST["clinicalStudyID"];
+	$clinicalStudyName = $_POST["clinicalStudyName"];
 
-    do {
-        if (
-             empty($familyName) || empty($givenName) || empty($dob) || empty($address) || empty($sex) || empty($weight) || empty($height) || empty($medicalHistory)
-             || empty($allergies) || empty($clinicalStudyID) || empty($clinicalStudyName)
-        )
-        {
-            $errorMessage = "All the fields are required";
-            break;
-        } //Error message that displays if any are the inputs are submitted empty
+	do {
+		if (
+			empty($familyName) || empty($givenName) || empty($dob) || empty($address) || empty($sex) || empty($weight) || empty($height) || empty($medicalHistory)
+			|| empty($allergies) || empty($clinicalStudyID) || empty($clinicalStudyName)
+		) {
+			$errorMessage = "All the fields are required";
+			break;
+		} //Error message that displays if any are the inputs are submitted empty
 
-        // to add a new client to the database\
+		// to add a new client to the database\
 
-        //Inserting values inputted into our database table!
+		//Inserting values inputted into our database table!
 
-        $sql = "INSERT INTO patientrecords (familyName, givenName, dob, address, sex, weight, height, medicalHistory, allergies, clinicalStudyID, clinicalStudyName) " .
-        "VALUES ('$familyName','$givenName','$dob','$address',
+		$sql = "INSERT INTO patientrecords (familyName, givenName, dob, address, sex, weight, height, medicalHistory, allergies, clinicalStudyID, clinicalStudyName) " .
+			"VALUES ('$familyName','$givenName','$dob','$address',
         '$sex', '$weight', '$height', '$medicalHistory', '$allergies', '$clinicalStudyID', '$clinicalStudyName')";
-        //Now excuting the sql query
-        $result = $connection->query($sql);
+		//Now excuting the sql query
+		$result = $connection->query($sql);
 
-        //If we have any error during the SQL query, this error message is displayed
-        if (!$result) {
-            $errorMessage = "Invalid query: " . $connection->error;
-            break;
-        }
+		//If we have any error during the SQL query, this error message is displayed
+		if (!$result) {
+			$errorMessage = "Invalid query: " . $connection->error;
+			break;
+		}
 
 
-        $familyName = "";
-        $givenName = "";
-        $dob = "";
-        $address = "";
-        $sex = "";
-        $weight = "";
-        $height = "";
-        $medicalHistory = "";
-        $allergies = "";
-        $clinicalStudyID = "";
-        $clinicalStudyName = "";
+		$familyName = "";
+		$givenName = "";
+		$dob = "";
+		$address = "";
+		$sex = "";
+		$weight = "";
+		$height = "";
+		$medicalHistory = "";
+		$allergies = "";
+		$clinicalStudyID = "";
+		$clinicalStudyName = "";
 
-        $successMessage = "Patient added successfully";
+		$successMessage = "Patient added successfully";
 
-        //To redirect the user back to the list page once a form is submitted
-        header("location: /clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php");
-        exit;
-    } while (false);
+		//To redirect the user back to the list page once a form is submitted
+		header("location: /clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php");
+		exit;
+	} while (false);
 }
 ?>
 
@@ -93,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="../style.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 	<title>Patient Medical Record</title>
 	<style>
 		li {
@@ -137,11 +136,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<a href="../Homepage.php">Homepage</a>
 			<a href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php">Patient Record List</a>
 			<a href="/clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php">Clinical Study List</a>
-			<a
-				href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial
+			<a href="/clinicalTestingWebsite/trialOrganisationsFolder/trialOrganisationsList.php">Trial
 				Organisation List</a>
-			<a
-				href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentList.php">Observation
+			<a href="/clinicalTestingWebsite/observationAndTreatmentRecordFolder/observationAndTreatmentList.php">Observation
 				/ Treatment List</a>
 		</div>
 	</div>
@@ -149,17 +146,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<br><br>
 
 	<form method="post">
-    <?php
-            //Message that displays if the form is submitted empty
-            if (!empty($errorMessage)) {
-                echo "
+		<?php
+		//Message that displays if the form is submitted empty
+		if (!empty($errorMessage)) {
+			echo "
                 <div class = 'alert alert-warning alert-dismissible fade show' role = 'alert'> 
                 <strong> $errorMessage</strong>
                 <button type = 'button' class = 'btn-close' data-bs-dismiss = 'alert' aria-label = 'Close'></button>
                 </div>
                 ";
-            }
-            ?>
+		}
+		?>
 		<ul>
 			<!-- <li>
 				<a href="Patient Record List.html">Back to Patient Record List</a>
@@ -170,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
 			<li>
 				<label for="givenName">Given Names:</label>
-				<input type="text" id="givenName" name="givenName" placeholder = "Enter given names" />
+				<input type="text" id="givenName" name="givenName" placeholder="Enter given names" />
 			</li>
 			<li>
 				<label for="DOB">Date of birth:</label>
@@ -207,28 +204,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
 			<li>
 				<label for="clinicalStudyID">Clinical Study ID:</label>
-				<input type="text" id="clinicalStudyID" name="clinicalStudyID" value = "Unassigned" />
+				<input type="text" id="clinicalStudyID" name="clinicalStudyID" value="Unassigned" />
 			</li>
 			<li>
 				<label for="clinicalStudyName">Clinical Study Name:</label>
-				<input type="text" id="clinicalStudyName" name="clinicalStudyName" value = "Unassigned"/>
+				<input type="text" id="clinicalStudyName" name="clinicalStudyName" value="Unassigned" />
 			</li>
-            <br>
-            <?php
-            if (!empty($successMessage)) {
-                //We use the javascript sourced from the Bootstrap website (See header) here. It allows us to remove the alerts once they have been read.
-                echo "
+			<br>
+			<?php
+			if (!empty($successMessage)) {
+				//We use the javascript sourced from the Bootstrap website (See header) here. It allows us to remove the alerts once they have been read.
+				echo "
                 <div class = 'alert alert-success alert-dismissible fade show' role = 'alert'> 
                 <strong>$successMessage</strong>
                 <button type = 'button' class = 'btn-close' data-bs-dismiss = 'alert' aria-label = 'Close'></button>
                 </div>
                 ";
-            }
-            ?>
-            <li>
-                <div class="buttonHolder">
-                    <button type="submit" class="btn btn-outline-success">Create Patient Record</button>
-                    <a class="btn btn-outline-danger" href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php" role="button">Cancel</a>
+			}
+			?>
+			<li>
+				<div class="buttonHolder">
+					<button type="submit" class="btn btn-outline-success">Create Patient Record</button>
+					<a class="btn btn-outline-danger" href="/clinicalTestingWebsite/patientRecordsFolder/patientRecordList.php" role="button">Cancel</a>
 			<li>
 			</li>
 		</ul>

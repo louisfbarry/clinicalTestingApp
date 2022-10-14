@@ -1,9 +1,9 @@
 <?php
 //To connect the form to the database
-$servername = "localhost"; // Our server is called localhost as the server is installed on this PC
-$username = "root"; // Our username is called root as that is the default username
-$password = ""; // Our Password is empty as default
-$database = "clinicaltesting2"; // The database is known as clinicaltesting
+$servername = "group2clinicaltesting.info"; // Our server is called localhost as the server is installed on this PC
+$username = "group2DBuser1"; // Our username is called root as that is the default username
+$password = "group2Rocks12345"; // Our Password is empty as default
+$database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
 
 // Create a connection to the database
 $connection = new mysqli($servername, $username, $password, $database);
@@ -60,8 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     do {
         if (
-             empty($studyID) || empty($studyExpertise) || empty($studyPhase)
-            || empty($eligibility) || empty($clinicalStudyDescription) || empty($onStudy) || empty($patientsEnrolledNumber)) {
+            empty($studyID) || empty($studyExpertise) || empty($studyPhase)
+            || empty($eligibility) || empty($clinicalStudyDescription) || empty($onStudy) || empty($patientsEnrolledNumber)
+        ) {
             $errorMessage = "All the fields are required";
             break;
         } //Error message that displays if any are the inputs are submitted empty\
@@ -73,8 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         $result = $connection->query($sql);
 
-         //If we have any error during the SQL query, this error message is displayed
-         if (!$result) {
+        //If we have any error during the SQL query, this error message is displayed
+        if (!$result) {
             $errorMessage = "Invalid query: " . $connection->error;
             break;
         }
@@ -83,7 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         header("location: /clinicalTestingWebsite/clinicalStudiesFolder/clinicalStudyList.php");
         exit;
-
     } while (false);
 }
 ?>
@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <div class="inputBlackBorder">
                 <form method="post">
                     <li>
-                        <input type="hidden" name = "studyID" value="<?php echo $studyID; ?>">
+                        <input type="hidden" name="studyID" value="<?php echo $studyID; ?>">
                     </li>
                     <li>
                         <label for="studyExpertise">Clinical Trial Title / Expertise:</label>
@@ -155,11 +155,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     </li>
                     <li>
                         <label for="eligibility">Clinical Study Eligibility:</label>
-                        <textarea id="eligibility" name=eligibility placeholder="E.g Patients must be 18 years old or greater"><?php echo $eligibility;?></textarea>
+                        <textarea id="eligibility" name=eligibility placeholder="E.g Patients must be 18 years old or greater"><?php echo $eligibility; ?></textarea>
                     </li>
                     <li>
                         <label for="clinicalStudyDescription">Clinical Study Description:</label>
-                        <textarea id="clinicalStudyDescription" name=clinicalStudyDescription placeholder="Enter the start time of the Clinical Trial here and any extra details worth noting."><?php echo $clinicalStudyDescription;?></textarea>
+                        <textarea id="clinicalStudyDescription" name=clinicalStudyDescription placeholder="Enter the start time of the Clinical Trial here and any extra details worth noting."><?php echo $clinicalStudyDescription; ?></textarea>
                     </li>
 
             </div>

@@ -27,10 +27,10 @@
         </div>
     </div>
     <div class="container my-5">
-        <h2>List of Clinical Studies <button type='button' id = "downloadexcel" class='btn btn-success'>Export list to Excel</button></h2>
+        <h2>List of Clinical Studies <button type='button' id="downloadexcel" class='btn btn-success'>Export list to Excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/clinicalStudiesFolder/createClinicalStudy.php" role="button">New Clinical Study </a>
         <br>
-        <table class="table" id = "example-table">
+        <table class="table" id="example-table">
             <thead>
                 <tr>
                     <th>Clinical Study ID</th>
@@ -44,10 +44,10 @@
             </thead>
             <tbody>
                 <?php
-$servername = "group2clinicaltesting.info"; // Our server is called localhost as the server is installed on this PC
-$username = "group2DBuser1"; // Our username is called root as that is the default username
-$password = "group2Rocks12345"; // Our Password is empty as default
-$database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
+                $servername = "group2clinicaltesting.info"; // Our server is called localhost as the server is installed on this PC
+                $username = "group2DBuser1"; // Our username is called root as that is the default username
+                $password = "group2Rocks12345"; // Our Password is empty as default
+                $database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
 
                 // Create a connection to the database
                 $connection = new mysqli($servername, $username, $password, $database);
@@ -94,10 +94,10 @@ $database = "group2clinicaltesting"; // The database is known as group2clinicalt
         </table>
     </div>
     <div class="container my-5">
-        <h2> List of Patient Records <button type='button' id = "downloadexcel1" class='btn btn-success'>Export list to Excel</button></h2>
+        <h2> List of Patient Records <button type='button' id="downloadexcel1" class='btn btn-success'>Export list to Excel</button></h2>
         <a class="btn btn-primary" href="/clinicalTestingWebsite/patientRecordsFolder/createPatientRecord.php" role="button">New Patient Record</a>
         <br>
-        <table class="table" id = "example-table1">
+        <table class="table" id="example-table1">
             <thead>
                 <tr>
                     <th>Patient ID</th>
@@ -176,7 +176,7 @@ $database = "group2clinicaltesting"; // The database is known as group2clinicalt
                 table2excel.export(document.querySelectorAll("#example-table"));
             });
         </script>
-        
+
         <script>
             //This is the script to export the 2nd table on this page (The Patient List) as an csv (The same script for both tables on 1 page does not work)
             document.getElementById('downloadexcel1').addEventListener('click', function() {
