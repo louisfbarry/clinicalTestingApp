@@ -1,11 +1,9 @@
 <?php //Had to change the file type to php. This is so we can add php code!
 
-//To connect the form to the database
-$servername = "localhost"; // Our server is called localhost as the server is installed on this PC
-$username = "root"; // Our username is called root as that is the default username
-$password = ""; // Our Password is empty as default
-$database = "clinicaltesting2"; // The database is known as clinicaltesting
-
+$servername = "group2clinicaltesting.info"; // Our server is called localhost as the server is installed on this PC
+                $username = "group2DBuser1"; // Our username is called root as that is the default username
+                $password = "group2Rocks12345"; // Our Password is empty as default
+                $database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
 // Create a connection to the database
 $connection = new mysqli($servername, $username, $password, $database);
 

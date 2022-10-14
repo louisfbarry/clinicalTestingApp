@@ -3,10 +3,10 @@ if ( isset($_GET["observationandTreatmentID"]) )
 {
     $observationandTreatmentID = $_GET["observationandTreatmentID"];
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "clinicaltesting2";
+    $servername = "group2clinicaltesting.info"; // Our server is called localhost as the server is installed on this PC
+    $username = "group2DBuser1"; // Our username is called root as that is the default username
+    $password = "group2Rocks12345"; // Our Password is empty as default
+    $database = "group2clinicaltesting"; // The database is known as group2clinicaltesting
 
     // Create connection
     $connection = new mysqli($servername, $username, $password, $database);
