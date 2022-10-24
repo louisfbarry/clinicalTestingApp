@@ -1,5 +1,4 @@
 #clinicalTestingWebsite
-This is a new, tidier repository for the Clinical Testing Website. We created this new repository as the previous one was causing errors whenever we'd try and update the code inside.
-
+This is a new, tidier repository for the Clinical Testing Website. (The original and out of date repository was known as Group-2s-Secret-Files.
 
 
